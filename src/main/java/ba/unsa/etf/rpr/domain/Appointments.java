@@ -9,8 +9,8 @@ public class Appointments {
     private Date time;
     private int duration;
     private String price;
-    private int user_id;
-    private int stylist_id;
+    private User user;
+    private Stylist stylist;
 
     public int getAppointments_id() {
         return appointments_id;
@@ -52,20 +52,20 @@ public class Appointments {
         this.price = price;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getStylist_id() {
-        return stylist_id;
+    public Stylist getStylist() {
+        return stylist;
     }
 
-    public void setStylist_id(int stylist_id) {
-        this.stylist_id = stylist_id;
+    public void setStylist(Stylist stylist) {
+        this.stylist = stylist;
     }
 
     @Override
@@ -76,8 +76,8 @@ public class Appointments {
                 ", time=" + time +
                 ", duration=" + duration +
                 ", price='" + price + '\'' +
-                ", user_id=" + user_id +
-                ", stylist_id=" + stylist_id +
+                ", user_id=" + user +
+                ", stylist_id=" + stylist +
                 '}';
     }
 
@@ -91,6 +91,6 @@ public class Appointments {
 
     @Override
     public int hashCode() {
-        return Objects.hash(appointments_id, service, time, duration, price, user_id, stylist_id);
+        return Objects.hash(appointments_id, service, time, duration, price, user, stylist);
     }
 }
