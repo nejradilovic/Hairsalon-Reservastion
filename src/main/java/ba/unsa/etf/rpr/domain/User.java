@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 /**
- * List of possible Users for Seat&Style
+ * Holds information about User for Seat&Style
  *
  * @author Nejra Adilović
  */
