@@ -7,7 +7,7 @@ import java.util.Objects;
  *
  * @author Nejra Adilović
  */
-public class User {
+public class User implements Idable{
 
     private int user_id;
     private String first_name;
@@ -18,10 +18,12 @@ public class User {
     private String password;
     private boolean admin;
 
-    public int getUser_id() {
+    @Override
+    public int getId() {
         return user_id;
     }
-    public void setUser_id(int user_id) {
+    @Override
+    public void setId(int user_id) {
         this.user_id = user_id;
     }
 
