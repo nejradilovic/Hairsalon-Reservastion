@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Date;
 import java.util.Objects;
 
-public class Appointments {
+public class Appointments implements Idable{
     private int appointments_id;
     private String service;
     private Date time;
@@ -11,12 +11,12 @@ public class Appointments {
     private String price;
     private User user;
     private Stylist stylist;
-
-    public int getAppointments_id() {
+    @Override
+    public int getId() {
         return appointments_id;
     }
-
-    public void setAppointments_id(int appointments_id) {
+    @Override
+    public void setId(int appointments_id) {
         this.appointments_id = appointments_id;
     }
 
