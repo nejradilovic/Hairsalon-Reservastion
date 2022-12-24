@@ -2,15 +2,16 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
-public class Stylist {
+public class Stylist implements Idable{
     private int stylist_id;
     private String first_name,last_name,phone;
 
-    public int getStylist_id() {
+    @Override
+    public int getId() {
         return stylist_id;
     }
-
-    public void setStylist_id(int stylist_id) {
+    @Override
+    public void setId(int stylist_id) {
         this.stylist_id = stylist_id;
     }
 
