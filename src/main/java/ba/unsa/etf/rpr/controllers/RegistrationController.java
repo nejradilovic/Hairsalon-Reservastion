@@ -1,8 +1,15 @@
 package ba.unsa.etf.rpr.controllers;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import java.io.IOException;
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class RegistrationController{
     public TextField firstnameEntry;
@@ -25,5 +32,16 @@ public class RegistrationController{
             else if(newValue.length()<6)
                 invalidUsername.setText("Username must have atleast 6 characters");
         });
+    }
+    public void createAccount(ActionEvent actionEvent) throws IOException {
+        final Stage registrationStage=(Stage) gridPaneRegistration.getScene().getWindow();
+        Stage myStage=new Stage();
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        loader.load();
+        myStage.setTitle("LogIn");
+        myStage.getIcons().add(new Image("/img/loginlogo.png"));
+        myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        myStage.show();
+        registrationStage.hide();
     }
 }
