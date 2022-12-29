@@ -38,4 +38,26 @@ public class LoginController {
         myStage.show();
         loginStage.hide();
     }
+    public void loginOnAction(ActionEvent actionEvent) throws IOException{
+        if(usernameTextField.getText().isBlank()==true && passwordTextField.getText().isBlank()==true){
+            emptyInput.setText("Please enter your username and password.");
+        }
+        else if(usernameTextField.getText().isBlank()==true && passwordTextField.getText().isBlank()==false){
+            emptyInput.setText("Please enter your username.");
+        }
+        else if(usernameTextField.getText().isBlank()==false && passwordTextField.getText().isBlank()==true){
+            emptyInput.setText("Please enter your password.");
+        }
+        else if(usernameTextField.getText().isBlank()==false && passwordTextField.getText().isBlank()==false) {
+            final Stage mainStage = (Stage) gridPane.getScene().getWindow();
+            Stage myStage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/welcome.fxml"));
+            loader.load();
+            myStage.setTitle("Seat&Style");
+            myStage.getIcons().add(new Image("/img/loginlogo.png"));
+            myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            myStage.show();
+            mainStage.hide();
+        }
+    }
 }
