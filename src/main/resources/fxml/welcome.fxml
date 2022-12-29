@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="587.0" fitWidth="861.0" layoutX="-15.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/poz2.png" />
+            <Image url="@../img/welcome.png" />
          </image>
       </ImageView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="248.0" layoutY="195.0" prefHeight="35.0" prefWidth="350.0" text="Welcome to Seat&amp;Style!">
