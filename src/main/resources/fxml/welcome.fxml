@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.WelcomeController">
+   <children>
+      <ImageView fitHeight="587.0" fitWidth="861.0" layoutX="-15.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/poz2.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="248.0" layoutY="195.0" prefHeight="35.0" prefWidth="350.0" text="Welcome to Seat&amp;Style!">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="29.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="appointmentId" fitHeight="137.0" fitWidth="147.0" layoutX="280.0" layoutY="236.0" onMouseClicked="#mainWindowOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/odabir.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="98.0" fitWidth="86.0" layoutX="472.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/loginlogo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="277.0" layoutY="360.0" prefHeight="22.0" prefWidth="154.0" text="Make an appointment">
+         <font>
+            <Font name="Bell MT" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="482.0" layoutY="361.0" prefHeight="18.0" prefWidth="79.0" text="My account">
+         <font>
+            <Font name="Bell MT" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
