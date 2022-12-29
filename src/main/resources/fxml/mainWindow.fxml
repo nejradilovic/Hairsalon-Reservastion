@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1100.0" style="-fx-background-image: url(&quot;img/poz.jpg&quot;); -fx-background-repeat: stretch;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.MainWindowController">
+<BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1100.0" style="-fx-background-image: url(&quot;img/bijelapozadina.jpg&quot;); -fx-background-repeat: stretch;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.MainWindowController">
    <top>
       <HBox prefHeight="214.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
          <children>
