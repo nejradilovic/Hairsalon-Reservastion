@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="560.0" style="-fx-background-color: #ffffff; -fx-background-image: url(&quot;img/poz.jpg&quot;); -fx-background-size: 335 420; -fx-background-position: 226 420;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="560.0" style="-fx-background-color: #ffffff; -fx-background-image: url(&quot;img/bijelapozadina.jpg&quot;); -fx-background-size: 335 420; -fx-background-position: 226 420;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="336.9999755859375" minWidth="10.0" prefWidth="226.0" />
     <ColumnConstraints fx:id="desnidio" hgrow="SOMETIMES" maxWidth="335.79998779296875" minWidth="10.0" prefWidth="335.79998779296875" />
@@ -27,7 +27,7 @@
    <children>
       <ImageView fitHeight="433.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
          <image>
-            <Image url="@../img/logo3.png" />
+            <Image url="@../img/logo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="138.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true">
