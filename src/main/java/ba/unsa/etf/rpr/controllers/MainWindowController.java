@@ -59,4 +59,15 @@ public class MainWindowController {
         myStage.show();
         registrationStage.hide();
     }
+    public void coloringHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        final Stage registrationStage=(Stage) borderPaneId.getScene().getWindow();
+        Stage myStage=new Stage();
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/coloring.fxml"));
+        loader.load();
+        myStage.setTitle("LogIn");
+        myStage.getIcons().add(new Image("/img/loginlogo.png"));
+        myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        myStage.show();
+        registrationStage.hide();
+    }
 }
