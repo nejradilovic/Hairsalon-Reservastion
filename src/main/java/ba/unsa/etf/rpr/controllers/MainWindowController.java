@@ -24,29 +24,12 @@ public class MainWindowController {
     public HBox stylingHBoxId;
     public Label stylingTextId;
     public ImageView stylingImageId;
+    OpenNewStage o=new OpenNewStage();
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
-        final Stage registrationStage=(Stage) borderPaneId.getScene().getWindow();
-        Stage myStage=new Stage();
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        loader.load();
-        myStage.setTitle("LogIn");
-        myStage.getIcons().add(new Image("/img/loginlogo.png"));
-        myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        myStage.setResizable(false);
-        myStage.show();
-        registrationStage.hide();
+        o.openWindow(borderPaneId, "login");
     }
     public void logoutOnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        final Stage registrationStage=(Stage) borderPaneId.getScene().getWindow();
-        Stage myStage=new Stage();
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        loader.load();
-        myStage.setTitle("LogIn");
-        myStage.getIcons().add(new Image("/img/loginlogo.png"));
-        myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        myStage.setResizable(false);
-        myStage.show();
-        registrationStage.hide();
+        o.openWindow(borderPaneId,"login");
     }
     public void stylingHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         final Stage registrationStage=(Stage) borderPaneId.getScene().getWindow();
