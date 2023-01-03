@@ -7,10 +7,14 @@ import java.io.IOException;
 public class WelcomeController {
     public ImageView appointmentId;
     public AnchorPane anchorPaneId;
+    public ImageView aboutId;
     OpenNewStage o=new OpenNewStage();
 
     public void mainWindowOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         o.openWindow(anchorPaneId, "mainWindow" );
     }
 
+    public void aboutOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        o.openWindow(anchorPaneId,"aboutUs");
+    }
 }
