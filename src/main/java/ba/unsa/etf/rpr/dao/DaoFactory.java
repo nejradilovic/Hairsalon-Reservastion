@@ -1,10 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
-/**
- * Factory method for singleton implementation of DAOs
- *
- * @author Nejra Adilovic
- */
+import java.sql.Connection;
 
 public class DaoFactory {
     private static final UserDao userDao = new UserDaoSQLImpl();
