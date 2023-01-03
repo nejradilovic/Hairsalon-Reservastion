@@ -20,7 +20,8 @@ public class AboutUsController {
         o.openWindow(borderPaneId,"mainWindow");
     }
 
-    public void logoutOnAction(ActionEvent actionEvent) {
+    public void logoutOnAction(ActionEvent actionEvent) throws IOException {
+        o.openWindow(borderPaneId,"login");
     }
 
     public void appointmentOnMouseClicked(MouseEvent mouseEvent) {
