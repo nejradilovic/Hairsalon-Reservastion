@@ -28,6 +28,7 @@ public class AboutUsController {
         o.openWindow(borderPaneId,"mainWindow");
     }
 
-    public void appointmentImageOnMouseClicked(MouseEvent mouseEvent) {
+    public void appointmentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        o.openWindow(borderPaneId,"mainWindow");
     }
 }
