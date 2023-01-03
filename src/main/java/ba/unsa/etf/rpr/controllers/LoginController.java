@@ -1,8 +1,5 @@
 package ba.unsa.etf.rpr.controllers;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.text.Text;
 import javafx.scene.layout.GridPane;
@@ -10,8 +7,6 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
-
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class LoginController {
     public ColumnConstraints desnidio;
