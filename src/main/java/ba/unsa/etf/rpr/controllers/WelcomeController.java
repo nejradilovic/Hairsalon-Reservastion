@@ -7,21 +7,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import ba.unsa.etf.rpr.controllers.OpenNewStage;
 
 import java.io.IOException;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class WelcomeController {
     public ImageView appointmentId;
     public AnchorPane anchorPaneId;
+    OpenNewStage o=new OpenNewStage();
+
     public void mainWindowOnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        final Stage mainStage = (Stage) anchorPaneId.getScene().getWindow();
-        Stage myStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainWindow.fxml"));
-        loader.load();
-        myStage.setTitle("Seat&Style");
-        myStage.getIcons().add(new Image("/img/loginlogo.png"));
-        myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        myStage.show();
-        mainStage.hide();
+        o.openWindow(anchorPaneId, "mainWindow" );
     }
+
 }
