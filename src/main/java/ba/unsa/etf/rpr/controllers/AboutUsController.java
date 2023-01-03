@@ -17,7 +17,7 @@ public class AboutUsController {
     OpenNewStage o= new OpenNewStage();
 
     public void logoutOnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        o.openWindow(borderPaneId,"mainWindow");
+        o.openWindow(borderPaneId,"login");
     }
 
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
