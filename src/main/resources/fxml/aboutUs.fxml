@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1100.0" style="-fx-background-image: url(&quot;img/bijelapozadina.jpg&quot;); -fx-background-repeat: stretch;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.AboutUsController" >
+<BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1100.0" style="-fx-background-image: url(&quot;img/bijelapozadina.jpg&quot;); -fx-background-repeat: stretch;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.AboutUsController">
     <top>
         <HBox prefHeight="214.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
             <children>
@@ -123,6 +124,20 @@
                     <HBox.margin>
                         <Insets left="80.0" />
                     </HBox.margin>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <children>
+                  <ImageView fitHeight="273.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@../img/aboutUs.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="-25.0" top="210.0" />
+                     </GridPane.margin>
+                  </ImageView>
+               </children>
                 </GridPane>
             </children>
         </HBox>
