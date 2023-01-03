@@ -22,21 +22,13 @@ public class LoginController {
     public  TextField usernameTextField;
     public  PasswordField passwordTextField;
     public  GridPane gridPane;
-
+    OpenNewStage o=new OpenNewStage();
     public void cancelButtonOnAction(ActionEvent event){
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
     public void registerUser(ActionEvent actionEvent) throws IOException {
-        final Stage loginStage=(Stage) gridPane.getScene().getWindow();
-        Stage myStage=new Stage();
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/registration.fxml"));
-        loader.load();
-        myStage.setTitle("Registration");
-        myStage.getIcons().add(new Image("/img/loginlogo.png"));
-        myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        myStage.show();
-        loginStage.hide();
+        o.openWindow(gridPane,"registration");
     }
     public void loginOnAction(ActionEvent actionEvent) throws IOException{
         if(usernameTextField.getText().isBlank()==true && passwordTextField.getText().isBlank()==true){
