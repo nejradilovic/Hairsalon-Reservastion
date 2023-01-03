@@ -26,21 +26,21 @@ public class MainWindowController {
     public ImageView stylingImageId;
     OpenNewStage o=new OpenNewStage();
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
-        o.openWindow(borderPaneId, "login");
-    }
-    public void logoutOnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        o.openWindow(borderPaneId,"login");
-    }
-    public void stylingHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         final Stage registrationStage=(Stage) borderPaneId.getScene().getWindow();
         Stage myStage=new Stage();
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/styling.fxml"));
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
         loader.load();
         myStage.setTitle("LogIn");
         myStage.getIcons().add(new Image("/img/loginlogo.png"));
         myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         myStage.show();
         registrationStage.hide();
+    }
+    public void logoutOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        o.openWindow(borderPaneId,"login");
+    }
+    public void stylingHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        o.openWindow(borderPaneId,"styling");
     }
     public void coloringHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         final Stage registrationStage=(Stage) borderPaneId.getScene().getWindow();
