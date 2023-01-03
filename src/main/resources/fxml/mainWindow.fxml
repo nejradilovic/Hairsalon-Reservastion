@@ -93,18 +93,18 @@
                         <Insets left="30.0" top="-40.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="151.0" style="-fx-background-color: transparent;" text="My account" textAlignment="CENTER">
+                  <Button fx:id="aboutTextId" mnemonicParsing="false" onMouseClicked="#aboutTextOnMouseClicked" prefHeight="66.0" prefWidth="151.0" style="-fx-background-color: transparent;" text="About Seat&amp;Style" textAlignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <padding>
-                        <Insets left="85.0" right="-50.0" top="80.0" />
+                        <Insets left="85.0" right="-100.0" top="80.0" />
                      </padding>
                      <VBox.margin>
                         <Insets top="-40.0" />
                      </VBox.margin>
                   </Button>
-                  <ImageView fitHeight="39.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="aboutImageId" fitHeight="39.0" fitWidth="35.0" onMouseClicked="#aboutImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/loginlogo.png" />
                      </image>
