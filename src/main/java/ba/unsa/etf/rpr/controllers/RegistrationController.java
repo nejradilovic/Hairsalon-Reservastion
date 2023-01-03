@@ -23,7 +23,7 @@ public class RegistrationController{
     public Hyperlink loginLink;
     public Label invalidUsername;
     public GridPane gridPaneRegistration;
-
+    OpenNewStage o=new OpenNewStage();
     public void initialize(){
         Platform.runLater(()->firstnameEntry.setFocusTraversable(false));
         String username=usernameEntry.getText();
@@ -58,15 +58,7 @@ public class RegistrationController{
         }
         else if(usernameEntry.getText().isBlank()==false && lastnameEntry.getText().isBlank()==false && firstnameEntry.getText().isBlank()==false && emailEntry.getText().isBlank()==false
                 && phoneEntry.getText().isBlank()==false && passwordEntry.getText().isBlank()==false){
-            final Stage mainStage = (Stage) gridPaneRegistration.getScene().getWindow();
-            Stage myStage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/welcome.fxml"));
-            loader.load();
-            myStage.setTitle("Seat&Style");
-            myStage.getIcons().add(new Image("/img/loginlogo.png"));
-            myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            myStage.show();
-            mainStage.hide();
+            o.openWindow(gridPaneRegistration, "welcome");
         }
     }
 }
