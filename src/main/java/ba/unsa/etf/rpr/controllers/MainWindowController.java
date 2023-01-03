@@ -16,6 +16,8 @@ public class MainWindowController {
     public HBox stylingHBoxId;
     public Label stylingTextId;
     public ImageView stylingImageId;
+    public Button aboutTextId;
+    public ImageView aboutImageId;
     OpenNewStage o=new OpenNewStage();
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
         o.openWindow(borderPaneId,"login");
@@ -34,5 +36,13 @@ public class MainWindowController {
     }
     public void extensionsHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         o.openWindow(borderPaneId,"extensions");
+    }
+
+    public void aboutTextOnMouseClicked(MouseEvent mouseEvent) throws  IOException{
+        o.openWindow(borderPaneId,"aboutUs");
+    }
+
+    public void aboutImageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        o.openWindow(borderPaneId,"aboutUs");
     }
 }
