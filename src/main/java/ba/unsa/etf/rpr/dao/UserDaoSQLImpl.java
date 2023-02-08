@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.HairsalonException;
 
+
 import java.sql.*;
 import java.util.Map;
 import java.util.TreeMap;
@@ -13,7 +14,7 @@ import java.util.TreeMap;
  */
 public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
     public UserDaoSQLImpl() {
-        super("USERS");
+        super("USER");
     }
 
     @Override
