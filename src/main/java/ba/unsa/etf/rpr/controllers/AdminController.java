@@ -13,6 +13,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -40,6 +42,7 @@ public class AdminController {
     public TableColumn<Appointments, Integer> durationColumn;
     public TableColumn<Appointments, String> priceColumn;
     public BorderPane borderPaneId;
+    public Button deleteId;
     OpenNewStage o=new OpenNewStage();
 
     public TableView<Stylist> stylistTable;
@@ -111,21 +114,22 @@ public class AdminController {
         refreshAppointments();
     }
     @FXML
-    void deleteUser(ActionEvent event)  {
+    void deleteUser(ActionEvent event) {
         int selectedUserId=userTable.getSelectionModel().getSelectedIndex();
-        //int selectedStylistId=stylistTable.getSelectionModel().getSelectedIndex();
-        User u=new User();
-        u=userTable.getSelectionModel().getSelectedItem();
-        userTable.getItems().remove(selectedUserId);
-        /*Stylist s= new Stylist();
-        s=stylistTable.getSelectionModel().getSelectedItem();*/
-
-        try{
-            DaoFactory.userDao().delete(u.getId());
-            //  DaoFactory.userDao().delete(s.getId());
+        User u=userTable.getSelectionModel().getSelectedItem();
+        if(!u.isAdmin()) {
+            userTable.getItems().remove(selectedUserId);
+            try {
+                DaoFactory.userDao().delete(u.getId());
+            } catch (HairsalonException e) {
+                e.printStackTrace();
+            }
         }
-        catch (HairsalonException e){
-            e.printStackTrace();
+        else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning Dialog");
+            alert.setContentText("You can not delete an admin!");
+            alert.showAndWait();
         }
     }
 }
