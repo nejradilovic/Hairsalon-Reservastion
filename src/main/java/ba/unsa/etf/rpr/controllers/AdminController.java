@@ -79,4 +79,35 @@ public class AdminController {
             e.printStackTrace();
         }
     }
+    public void initialize(){
+        userIdColumn.setCellValueFactory(cellData -> {
+            User user= cellData.getValue();
+            return new SimpleIntegerProperty(user.getId()).asObject();
+        });
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<User,String>("first_name"));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<User,String>("last_name"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<User,String>("email"));
+        phoneNumColumn.setCellValueFactory(new PropertyValueFactory<User,String>("phone"));
+        usernameColumn.setCellValueFactory(new PropertyValueFactory<User,String>("username"));
+        passwordColumn.setCellValueFactory(new PropertyValueFactory<User,String>("password"));
+        adminColumn.setCellValueFactory(new PropertyValueFactory<User, Boolean>("admin"));
+        refreshUser();
+        stylistIdColumn.setCellValueFactory(cellData -> {
+            Stylist stylist = cellData.getValue();
+            return new SimpleIntegerProperty(stylist.getId()).asObject();
+        });
+        first_nameColumn.setCellValueFactory(new PropertyValueFactory<Stylist,String>("first_name"));
+        last_nameColumn.setCellValueFactory(new PropertyValueFactory<Stylist,String>("last_name"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<Stylist,String>("phone"));
+        refreshStylist();
+        appointmentsIdColumn.setCellValueFactory(cellData -> {
+            Appointments appointments = cellData.getValue();
+            return new SimpleIntegerProperty(appointments.getId()).asObject();
+        });
+        serviceColumn.setCellValueFactory(new PropertyValueFactory<Appointments,String>("service"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Appointments,Date>("time"));
+        durationColumn.setCellValueFactory(new PropertyValueFactory<Appointments,Integer>("duration"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<Appointments,String>("price"));
+        refreshAppointments();
+    }
 }
