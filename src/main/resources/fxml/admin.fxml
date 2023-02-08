@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.AdminController">
+   <center>
+      <TabPane prefHeight="578.0" prefWidth="467.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="USER">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="userTable" prefHeight="702.0" prefWidth="758.0">
+                          <columns>
+                            <TableColumn fx:id="userIdColumn" minWidth="2.6666717529296875" prefWidth="60.26667708158493" text="USER_ID" />
+                            <TableColumn fx:id="firstNameColumn" prefWidth="110.66669082641602" text="FIRST_NAME" />
+                              <TableColumn fx:id="lastNameColumn" prefWidth="118.13325500488281" text="LAST_NAME" />
+                              <TableColumn fx:id="emailColumn" minWidth="60.0" prefWidth="140.0" text="EMAIL" />
+                              <TableColumn fx:id="phoneNumColumn" prefWidth="70.40008544921875" text="PHONE" />
+                              <TableColumn fx:id="usernameColumn" prefWidth="92.0" text="USERNAME" />
+                              <TableColumn fx:id="passwordColumn" prefWidth="91.99981689453125" text="PASSWORD" />
+                              <TableColumn fx:id="adminColumn" prefWidth="64.80010986328125" text="ADMIN" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+          <Tab text="STYLIST">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="stylistTable" prefHeight="701.0" prefWidth="755.0">
+                          <columns>
+                              <TableColumn fx:id="stylistIdColumn" prefWidth="98.40002745389938" text="STYLIST_ID" />
+                            <TableColumn fx:id="first_nameColumn" prefWidth="128.79995727539062" text="FIRST_NAME" />
+                            <TableColumn fx:id="last_nameColumn" prefWidth="136.2666778564453" text="LAST_NAME" />
+                              <TableColumn fx:id="phoneColumn" prefWidth="132.2666015625" text="PHONE" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="APPOINTMENTS">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="appointmentsTable" prefHeight="702.0" prefWidth="755.0">
+                          <columns>
+                            <TableColumn fx:id="appointmentsIdColumn" prefWidth="131.73338621854782" text="APPOINTMENTS_ID" />
+                            <TableColumn fx:id="serviceColumn" minWidth="6.4000244140625" prefWidth="115.46664428710938" text="SERVICE" />
+                              <TableColumn fx:id="timeColumn" prefWidth="84.26664733886719" text="TIME" />
+                              <TableColumn fx:id="durationColumn" prefWidth="87.1998291015625" text="DURATION" />
+                              <TableColumn fx:id="priceColumn" prefWidth="82.933349609375" text="PRICE" />
+                              <TableColumn fx:id="userIdfkColumn" prefWidth="126.40008544921875" text="USER_ID" />
+                              <TableColumn prefWidth="123.9998779296875" text="STYLIST_ID" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <left>
+      <VBox prefHeight="730.0" prefWidth="139.0" style="-fx-background-color: #0D111F;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="265.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/admin.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="170.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox prefHeight="110.0" prefWidth="247.0">
+               <children>
+                  <ImageView fx:id="logoutImageId" fitHeight="47.0" fitWidth="60.0" onMouseClicked="#logoutImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/logoutbijeli.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Button fx:id="logoutId" mnemonicParsing="false" onMouseClicked="#logoutOnMouseClicked" prefHeight="30.0" prefWidth="153.0" style="-fx-background-color: transparent;" text="LOGOUT" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" right="50.0" top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="250.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox prefHeight="730.0" prefWidth="106.0" style="-fx-background-color: #0D111F;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #FCF4F0;" text="EDIT">
+               <VBox.margin>
+                  <Insets bottom="-90.0" left="10.0" top="550.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="deleteId" mnemonicParsing="false" onAction="#deleteUser" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #FCF4F0;" text="DELETE">
+               <VBox.margin>
+                  <Insets left="10.0" top="150.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="30.0" layoutY="460.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #FCF4F0;" text="ADD">
+               <VBox.margin>
+                  <Insets left="10.0" top="-70.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
