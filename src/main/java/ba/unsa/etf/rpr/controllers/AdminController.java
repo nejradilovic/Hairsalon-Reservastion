@@ -57,4 +57,12 @@ public class AdminController {
             e.printStackTrace();
         }
     }
+    void refreshUser(){
+        try{
+            userTable.setItems(FXCollections.observableList(userManager.getAll()));
+            userTable.refresh();
+        } catch (HairsalonException e){
+            e.printStackTrace();
+        }
+    }
 }
