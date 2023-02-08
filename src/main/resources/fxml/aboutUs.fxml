@@ -64,7 +64,7 @@
                                 <Image url="@../img/kosa.png" />
                             </image>
                             <VBox.margin>
-                                <Insets bottom="-30.0" left="90.0" />
+                                <Insets bottom="-40.0" left="90.0" />
                             </VBox.margin>
                         </ImageView>
                         <Label prefHeight="34.0" prefWidth="328.0" text="Welcome to Seat&amp;Style!">
@@ -75,7 +75,7 @@
                                 <Font name="Cambria Bold" size="27.0" />
                             </font>
                      <VBox.margin>
-                        <Insets top="15.0" />
+                        <Insets top="20.0" />
                      </VBox.margin>
                         </Label>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Are long queues of customers in front of your favourite salon keeping you away from booking your own appointment? Try out this tailor-made salon appointment booking solution that fades all the queues and manages every customer's appointment systematically online. We have developed a simple system with which you can book an appointment with just one click. Employees can finally spend more time styling while new appointments land in their calendar automatically. Thanks to Seat&amp;Style you can forget about unnecessary messages and calls that interrupt the stylist's work or free time! " textAlignment="JUSTIFY" wrappingWidth="653.6539490222931">
@@ -83,7 +83,7 @@
                         <Insets left="35.0" top="10.0" />
                      </VBox.margin>
                      <font>
-                        <Font size="14.0" />
+                        <Font size="15.0" />
                      </font>
                   </Text>
                         <Button fx:id="appointmentId" mnemonicParsing="false" onMouseClicked="#appointmentOnMouseClicked" prefHeight="47.0" prefWidth="224.0" style="-fx-background-color: transparent;" text="Make an appointment" textAlignment="CENTER">
@@ -91,7 +91,7 @@
                                 <Font size="20.0" />
                             </font>
                             <VBox.margin>
-                                <Insets left="80.0" top="105.0" />
+                                <Insets bottom="20.0" left="80.0" top="80.0" />
                             </VBox.margin>
                         </Button>
                         <ImageView fx:id="appointmentImageId" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#appointmentImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
@@ -99,12 +99,12 @@
                                 <Image url="@../img/odabir.png" />
                             </image>
                             <VBox.margin>
-                                <Insets left="18.0" top="-55.0" />
+                                <Insets left="18.0" top="-85.0" />
                             </VBox.margin>
                         </ImageView>
                     </children>
                     <VBox.margin>
-                        <Insets right="-80.0" />
+                        <Insets right="-80.0" top="20.0" />
                     </VBox.margin>
                 </VBox>
             </children>
@@ -129,12 +129,12 @@
                   <ColumnConstraints />
                </columnConstraints>
                <children>
-                  <ImageView fitHeight="273.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                  <ImageView fitHeight="402.0" fitWidth="442.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
                         <Image url="@../img/aboutUs.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets left="-25.0" top="210.0" />
+                        <Insets left="-5.0" top="210.0" />
                      </GridPane.margin>
                   </ImageView>
                </children>
