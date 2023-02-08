@@ -110,4 +110,22 @@ public class AdminController {
         priceColumn.setCellValueFactory(new PropertyValueFactory<Appointments,String>("price"));
         refreshAppointments();
     }
+    @FXML
+    void deleteUser(ActionEvent event)  {
+        int selectedUserId=userTable.getSelectionModel().getSelectedIndex();
+        //int selectedStylistId=stylistTable.getSelectionModel().getSelectedIndex();
+        User u=new User();
+        u=userTable.getSelectionModel().getSelectedItem();
+        userTable.getItems().remove(selectedUserId);
+        /*Stylist s= new Stylist();
+        s=stylistTable.getSelectionModel().getSelectedItem();*/
+
+        try{
+            DaoFactory.userDao().delete(u.getId());
+            //  DaoFactory.userDao().delete(s.getId());
+        }
+        catch (HairsalonException e){
+            e.printStackTrace();
+        }
+    }
 }
