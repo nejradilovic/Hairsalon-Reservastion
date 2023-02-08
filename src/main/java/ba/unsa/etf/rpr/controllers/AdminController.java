@@ -65,4 +65,12 @@ public class AdminController {
             e.printStackTrace();
         }
     }
+    void refreshAppointments(){
+        try{
+            appointmentsTable.setItems(FXCollections.observableList(appointmentsManager.getAll()));
+            appointmentsTable.refresh();
+        } catch (HairsalonException e){
+            e.printStackTrace();
+        }
+    }
 }
