@@ -52,6 +52,9 @@ public class AdminController {
     public void logoutImageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         o.openWindow(borderPaneId,"login");
     }
+    public void logoutOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        o.openWindow(borderPaneId,"login");
+    }
     void refreshStylist(){
         try{
             stylistTable.setItems(FXCollections.observableList(stylistManager.getAll()));
