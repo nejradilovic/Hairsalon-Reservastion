@@ -40,7 +40,7 @@ public class LoginController {
     public void registerUser(ActionEvent actionEvent) throws IOException {
         o.openWindow(gridPane,"registration");
     }
-    public void loginOnAction(ActionEvent actionEvent) throws IOException{
+    public void loginOnAction(ActionEvent actionEvent) throws IOException {
         if(usernameTextField.getText().isBlank()==true && passwordTextField.getText().isBlank()==true){
             emptyInput.setText("Please enter your username and password.");
         }
@@ -51,7 +51,23 @@ public class LoginController {
             emptyInput.setText("Please enter your password.");
         }
         else if(usernameTextField.getText().isBlank()==false && passwordTextField.getText().isBlank()==false) {
-            o.openWindow(gridPane,"welcome");
+            String username = usernameTextField.getText();
+            String password = passwordTextField.getText();
+            UserDaoSQLImpl u=new UserDaoSQLImpl();
+            boolean flag=checkUser(username, password);
+            if (!flag) {
+                emptyInput.setText("Please, enter correct username and password!");
+                usernameTextField.clear();
+                passwordTextField.clear();
+            }
+            else {
+                if(username.equals("nadilovic2")){
+                    o.openWindow(gridPane,"admin");
+                }
+                else{
+                    o.openWindow(gridPane, "welcome");
+                }
+            }
         }
     }
     public boolean checkUser(String username, String password) {
