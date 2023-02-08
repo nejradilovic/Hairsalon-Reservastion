@@ -53,8 +53,8 @@ public class RegistrationController{
         o.openWindow(gridPaneRegistration, "login");
     }
 
-    public void signupOnAction(ActionEvent actionEvent) throws IOException {
-        if(usernameEntry.getText().length()<6) signupButton.setDisable(true);
+
+    public void signupOnAction(ActionEvent actionEvent) throws IOException, HairsalonException {
         if(usernameEntry.getText().isBlank()==true || lastnameEntry.getText().isBlank()==true || firstnameEntry.getText().isBlank()==true || emailEntry.getText().isBlank()==true
                 || phoneEntry.getText().isBlank()==true || passwordEntry.getText().isBlank()==true){
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -65,7 +65,23 @@ public class RegistrationController{
         }
         else if(usernameEntry.getText().isBlank()==false && lastnameEntry.getText().isBlank()==false && firstnameEntry.getText().isBlank()==false && emailEntry.getText().isBlank()==false
                 && phoneEntry.getText().isBlank()==false && passwordEntry.getText().isBlank()==false){
-            o.openWindow(gridPaneRegistration, "welcome");
+            String username = usernameEntry.getText();
+            UserDaoSQLImpl u=new UserDaoSQLImpl();
+            User user=new User();
+            boolean flag=checkUsername(username);
+            if (flag) {
+                invalidUsername.setText("The username you entered is already taken.");
+            }
+            else {
+                user.setPassword(passwordEntry.getText());
+                user.setUsername(usernameEntry.getText());
+                user.setLast_name(lastnameEntry.getText());
+                user.setFirst_name(firstnameEntry.getText());
+                user.setPhone(phoneEntry.getText());
+                user.setEmail(emailEntry.getText());
+                u.add(user);
+                o.openWindow(gridPaneRegistration, "welcome");
+            }
         }
     }
     public boolean checkUsername(String username) {
