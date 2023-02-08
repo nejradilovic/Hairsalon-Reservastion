@@ -74,44 +74,42 @@
                         <Font name="Cambria Bold" size="27.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="224.0" style="-fx-background-color: transparent;" text="My appointments" textAlignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <padding>
-                        <Insets left="10.0" top="10.0" />
-                     </padding>
-                     <VBox.margin>
-                        <Insets left="50.0" top="20.0" />
-                     </VBox.margin>
-                  </Button>
-                  <ImageView fitHeight="39.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/historija.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets left="30.0" top="-40.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Button fx:id="aboutTextId" mnemonicParsing="false" onMouseClicked="#aboutTextOnMouseClicked" prefHeight="66.0" prefWidth="151.0" style="-fx-background-color: transparent;" text="About Seat&amp;Style" textAlignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <padding>
-                        <Insets left="85.0" right="-100.0" top="80.0" />
-                     </padding>
-                     <VBox.margin>
-                        <Insets top="-40.0" />
-                     </VBox.margin>
-                  </Button>
-                  <ImageView fx:id="aboutImageId" fitHeight="39.0" fitWidth="35.0" onMouseClicked="#aboutImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/loginlogo.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets left="30.0" top="-35.0" />
-                     </VBox.margin>
-                  </ImageView>
+                  <HBox prefHeight="133.0" prefWidth="243.0">
+                     <children>
+                        <ImageView fitHeight="39.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/historija.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="25.0" right="-20.0" top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="224.0" style="-fx-background-color: transparent;" text="My appointments" textAlignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" top="10.0" />
+                           </padding>
+                        </Button>
+                        <ImageView fx:id="aboutImageId" fitHeight="39.0" fitWidth="35.0" onMouseClicked="#aboutImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/loginlogo.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="-238.0" top="70.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Button fx:id="aboutTextId" mnemonicParsing="false" onMouseClicked="#aboutTextOnMouseClicked" prefHeight="18.0" prefWidth="239.0" style="-fx-background-color: transparent;" text="About Seat&amp;Style" textAlignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="-22.0" top="68.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
                <VBox.margin>
                   <Insets right="-80.0" />
