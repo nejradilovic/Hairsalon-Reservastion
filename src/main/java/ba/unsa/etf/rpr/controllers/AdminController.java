@@ -49,6 +49,9 @@ public class AdminController {
     UserManager userManager=new UserManager();
     StylistManager stylistManager=new StylistManager();
     AppointmentsManager appointmentsManager=new AppointmentsManager();
+    public void logoutImageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        o.openWindow(borderPaneId,"login");
+    }
     void refreshStylist(){
         try{
             stylistTable.setItems(FXCollections.observableList(stylistManager.getAll()));
