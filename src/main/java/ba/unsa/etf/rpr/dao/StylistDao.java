@@ -9,6 +9,4 @@ import ba.unsa.etf.rpr.exceptions.HairsalonException;
  * @author Nejra Adilović
  */
 public interface StylistDao extends Dao<Stylist> {
-    Stylist getByFirst_name(String ime) throws HairsalonException;
-
 }
