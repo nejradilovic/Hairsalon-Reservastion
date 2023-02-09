@@ -43,6 +43,8 @@ public class AdminController {
     public TableColumn<Appointments, String> priceColumn;
     public BorderPane borderPaneId;
     public Button deleteId;
+    public Button editButton;
+    public Button addStylistId;
     OpenNewStage o=new OpenNewStage();
 
     public TableView<Stylist> stylistTable;
@@ -131,5 +133,9 @@ public class AdminController {
             alert.setContentText("You can not delete an admin!");
             alert.showAndWait();
         }
+    }
+
+    public void addOnAction(ActionEvent actionEvent) throws IOException {
+        o.openWindow(borderPaneId,"addStylist");
     }
 }
