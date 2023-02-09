@@ -9,8 +9,18 @@ import java.util.TreeMap;
 
 
 public class AppointmentsDaoSQLImpl extends AbstractDao<Appointments> implements AppointmentsDao{
-    public AppointmentsDaoSQLImpl() {
+    private static  AppointmentsDaoSQLImpl instance = null;
+    private AppointmentsDaoSQLImpl() {
         super("APPOINTMENTS");
+    }
+    public static AppointmentsDaoSQLImpl getInstance(){
+        if(instance==null)
+            instance = new AppointmentsDaoSQLImpl();
+        return instance;
+    }
+    public static void removeInstance(){
+        if(instance!=null)
+            instance=null;
     }
     @Override
     public Appointments row2object(ResultSet rs) throws HairsalonException {
