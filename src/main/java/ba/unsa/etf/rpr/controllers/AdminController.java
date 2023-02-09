@@ -115,23 +115,4 @@ public class AdminController {
         priceColumn.setCellValueFactory(new PropertyValueFactory<Appointments,String>("price"));
         refreshAppointments();
     }
-    @FXML
-    void deleteUser(ActionEvent event) {
-        int selectedUserId=userTable.getSelectionModel().getSelectedIndex();
-        User u=userTable.getSelectionModel().getSelectedItem();
-        if(!u.isAdmin()) {
-            userTable.getItems().remove(selectedUserId);
-            try {
-                DaoFactory.userDao().delete(u.getId());
-            } catch (HairsalonException e) {
-                e.printStackTrace();
-            }
-        }
-        else{
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning Dialog");
-            alert.setContentText("You can not delete an admin!");
-            alert.showAndWait();
-        }
-    }
 }
