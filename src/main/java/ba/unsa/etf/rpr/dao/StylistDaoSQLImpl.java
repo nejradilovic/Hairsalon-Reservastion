@@ -13,9 +13,22 @@ import java.util.TreeMap;
  * @author Nejra Adilovic
  */
 public class StylistDaoSQLImpl extends AbstractDao<Stylist> implements StylistDao{
-    public StylistDaoSQLImpl() {
+    private static  StylistDaoSQLImpl instance = null;
+    private StylistDaoSQLImpl() {
         super("STYLIST");
     }
+
+    public static StylistDaoSQLImpl getInstance(){
+        if(instance==null)
+            instance = new StylistDaoSQLImpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance!=null)
+            instance=null;
+    }
+
 
     @Override
     public Stylist row2object(ResultSet rs) throws HairsalonException {
