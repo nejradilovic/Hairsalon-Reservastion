@@ -9,6 +9,8 @@ import ba.unsa.etf.rpr.domain.Appointments;
 import ba.unsa.etf.rpr.exceptions.HairsalonException;
 import org.apache.commons.cli.*;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
@@ -35,5 +37,95 @@ public class App {
         options.addOption(getAppointments);
         options.addOption(updateStylist);
         return options;
+    }
+    public static void main(String[] args) throws Exception {
+        Options options = addOptions();
+
+        CommandLineParser commandLineParser = new DefaultParser();
+
+        CommandLine cl = commandLineParser.parse(options, args);
+
+        if((cl.hasOption(addStylist.getOpt()))) {
+            try {
+                StylistManager stylistManager = new StylistManager();
+                System.out.println("Input in");
+                Stylist stylist = new Stylist();
+                stylist.setFirst_name(cl.getArgList().get(0));
+                stylist.setLast_name(cl.getArgList().get(1));
+                stylist.setPhone(cl.getArgList().get(2));
+                stylistManager.add(stylist);
+                System.out.println("New stylist successfully added to database!");
+            }
+            catch(Exception e){
+                System.out.println("Incorrect");
+            }
+        }
+        else if(cl.hasOption(updateStylist.getOpt())){
+            try {
+                StylistManager stylistManager = new StylistManager();
+                System.out.println("Input in");
+                List<Stylist> list=stylistManager.getAll();
+                List<Integer> ids= new ArrayList<>();
+                for(int i=0; i<list.size(); i++){
+                    Stylist stylist=list.get(i);
+                    ids.add(stylist.getId());
+                }
+                if(ids.contains(Integer.valueOf(cl.getArgList().get(0)))) {
+                    Stylist stylist = new Stylist();
+                    stylist.setId(Integer.parseInt(cl.getArgList().get(0)));
+                    stylist.setFirst_name(cl.getArgList().get(1));
+                    stylist.setLast_name(cl.getArgList().get(2));
+                    stylist.setPhone(cl.getArgList().get(3));
+                    stylistManager.update(stylist);
+                    System.out.println("Stylist successfully updated!");
+                }
+                else{
+                    System.out.println("The given id doesn't exist in the database!");
+                }
+            }
+            catch(Exception e){
+                System.out.println("Incorrect");
+            }
+        }
+        else if(cl.hasOption(deleteStylist.getOpt())) {
+            try {
+                StylistManager stylistManager = new StylistManager();
+                System.out.println("Input in");
+                List<Stylist> list = stylistManager.getAll();
+                List<Integer> ids = new ArrayList<>();
+                for (int i = 0; i < list.size(); i++) {
+                    Stylist stylist = list.get(i);
+                    ids.add(stylist.getId());
+                }
+                if(ids.contains(Integer.valueOf(cl.getArgList().get(0)))) {
+                    stylistManager.delete(Integer.parseInt(cl.getArgList().get(0)));
+                    System.out.println("Stylist successfully deleted from database!");
+                } else {
+                    System.out.println("The given id doesn't exist in the database!");
+                }
+            } catch (Exception e) {
+                System.out.println("Incorrect");
+            }
+        }
+        else if(cl.hasOption(getStylists.getOpt())){
+            StylistManager stylistManager = new StylistManager();
+            stylistManager.getAll().forEach(c -> System.out.println(c.getFirst_name() + " ; " + c.getLast_name() + " ; " +c.getPhone()));
+        }
+        else if(cl.hasOption(getUsers.getLongOpt())){
+            UserManager userManager = new UserManager();
+            userManager.getAll().forEach(c -> System.out.println(c.getId()
+                    + " ; " + c.getFirst_name() + " ; " + c.getLast_name() + " ; " + c.getEmail() + " ; " + c.getPhone()
+                    + " ; " + c.getUsername() + " ; " + c.getPassword() + " ; " + c.isAdmin()));
+
+        }
+        else if(cl.hasOption(getAppointments.getOpt())){
+            AppointmentsManager appointmentsManager = new AppointmentsManager();
+            appointmentsManager.getAll().forEach(c -> System.out.println(c.getId()+ " ; " + " ; " + c.getService() + " ; " + c.getPrice() + " ; " + c.getTime() + " ; " + c.getDuration()
+                    + " ; " + c.getUser().getUsername() + c.getStylist().getFirst_name()));
+        }
+        else {
+            printFormattedOptions(options);
+            System.exit(-1);
+        }
     }
 }
