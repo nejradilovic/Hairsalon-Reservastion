@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Stylist;
-import ba.unsa.etf.rpr.exceptions.HairsalonException;
 
 /**
  * Dao interface for Stylist domain bean
