@@ -134,8 +134,4 @@ public class AdminController {
             alert.showAndWait();
         }
     }
-
-    public void addOnAction(ActionEvent actionEvent) throws IOException {
-        o.openWindow(borderPaneId,"addStylist");
-    }
 }
