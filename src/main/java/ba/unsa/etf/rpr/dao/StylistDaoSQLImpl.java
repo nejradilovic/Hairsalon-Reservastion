@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.domain.Stylist;
 import ba.unsa.etf.rpr.exceptions.HairsalonException;
 
 import java.sql.*;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -38,5 +39,14 @@ public class StylistDaoSQLImpl extends AbstractDao<Stylist> implements StylistDa
         row.put("last_name", object.getLast_name());
         row.put("phone", object.getPhone());
         return row;
+    }
+    @Override
+    public Stylist getByFirst_name(String first_name) throws HairsalonException {
+        try {
+            List<Stylist> stylists = executeQuery("SELECT * FROM STYLIST WHERE first_name = ?", new Object[]{first_name});
+            return stylists.get(0);
+        } catch (HairsalonException e) {
+            throw new HairsalonException(e.getMessage(), e);
+        }
     }
 }
