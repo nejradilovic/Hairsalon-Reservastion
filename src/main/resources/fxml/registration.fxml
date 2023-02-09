@@ -102,7 +102,7 @@
         <Insets left="50.0" right="50.0" top="155.0" />
       </GridPane.margin>
     </PasswordField>
-    <Button fx:id="signupButton" mnemonicParsing="false" onAction="#signupOnAction" prefHeight="27.2" prefWidth="234.4" style="-fx-background-color: #0D1117; -fx-border-color: #FFFFFF;" text="Sign Up" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <Button fx:id="signupButton" defaultButton="true" mnemonicParsing="false" onAction="#signupOnAction" prefHeight="27.2" prefWidth="234.4" style="-fx-background-color: #0D1117; -fx-border-color: #FFFFFF;" text="Sign Up" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <GridPane.margin>
         <Insets left="50.0" right="50.0" top="240.0" />
       </GridPane.margin>
