@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  * Holds information about User for Seat&Style
- *
+ * Bean for User
  * @author Nejra Adilović
  */
 public class User implements Idable{
