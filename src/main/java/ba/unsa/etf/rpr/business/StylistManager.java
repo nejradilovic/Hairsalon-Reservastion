@@ -30,4 +30,7 @@ public class StylistManager {
     public Stylist getById(int stylistId) throws HairsalonException{
         return DaoFactory.stylistDao().getById(stylistId);
     }
+    public Stylist getByFirst_name(String ime) throws HairsalonException {
+        return DaoFactory.stylistDao().getByFirst_name(ime);
+    }
 }
