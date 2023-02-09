@@ -100,7 +100,7 @@
          </GridPane.margin>
       </ImageView>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="24.0" prefWidth="205.0" style="-fx-background-color: #0D1117; -fx-border-color: #FFFFFF;" text="Log in" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="24.0" prefWidth="205.0" style="-fx-background-color: #0D1117; -fx-border-color: #FFFFFF;" text="Log in" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="70.0" top="130.0" />
          </GridPane.margin>
