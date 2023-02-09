@@ -26,5 +26,14 @@ public class App {
         helpFormatter.printOptions(printWriter, 150, options, 2, 7);
         printWriter.close();
     }
-
+    public static Options addOptions() {
+        Options options = new Options();
+        options.addOption(addStylist);
+        options.addOption(deleteStylist);
+        options.addOption(getStylists);
+        options.addOption(getUsers);
+        options.addOption(getAppointments);
+        options.addOption(updateStylist);
+        return options;
+    }
 }
