@@ -1,6 +1,11 @@
 package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
+/**
+ * Holds information about Stylist for Seat&Style
+ * Bean for Stylist
+ * @author Nejra Adilović
+ */
 
 public class Stylist implements Idable{
     private int stylist_id;
