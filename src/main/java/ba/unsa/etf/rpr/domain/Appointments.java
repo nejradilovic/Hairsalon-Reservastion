@@ -2,6 +2,11 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Date;
 import java.util.Objects;
+/**
+ * Class that contains information about scheduled appointments made for Seat&Style.
+ * Bean for Appointments
+ * @author Nejra Adilovic
+ */
 
 public class Appointments implements Idable{
     private int appointments_id;
