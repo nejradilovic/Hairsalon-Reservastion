@@ -40,13 +40,4 @@ public class StylistDaoSQLImpl extends AbstractDao<Stylist> implements StylistDa
         row.put("phone", object.getPhone());
         return row;
     }
-    @Override
-    public Stylist getByFirst_name(String first_name) throws HairsalonException {
-        try {
-            List<Stylist> stylists = executeQuery("SELECT * FROM STYLIST WHERE first_name = ?", new Object[]{first_name});
-            return stylists.get(0);
-        } catch (HairsalonException e) {
-            throw new HairsalonException(e.getMessage(), e);
-        }
-    }
 }
