@@ -6,6 +6,7 @@ import ba.unsa.etf.rpr.exceptions.HairsalonException;
 import java.sql.*;
 import java.util.*;
 
+
 public abstract class AbstractDao<T extends Idable> implements Dao<T>{
 
     private static Connection connection = null;
@@ -15,6 +16,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         this.tableName = tableName;
         if(connection==null) createConnection();
     }
+
     private static void createConnection(){
         if(AbstractDao.connection==null) {
             try {
@@ -33,20 +35,8 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
     public static Connection getConnection(){
         return AbstractDao.connection;
     }
-
-    public void setConnection(Connection connection){
-        if(AbstractDao.connection!=null) {
-            try {
-                AbstractDao.connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        AbstractDao.connection = connection;
-    }
-
-    public void removeConnection(){
-        if(this.connection!=null) {
+    public static void closeConnection() {
+        if(connection!=null) {
             try {
                 connection.close();
             } catch (SQLException e) {
