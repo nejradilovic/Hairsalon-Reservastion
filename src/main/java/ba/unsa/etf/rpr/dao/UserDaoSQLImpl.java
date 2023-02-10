@@ -93,5 +93,47 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
             throw new HairsalonException(e.getMessage(), e);
         }
     }
-
+    /**
+     * Lists all users from table USER in database that have the desired last name
+     * @param last_name
+     * @return List of all users with the desired last name
+     */
+    @Override
+    public User getByLastName(String last_name) throws HairsalonException {
+        try {
+            List<User> users = executeQuery("SELECT * FROM USER WHERE last_name = ?", new Object[]{last_name});
+            return users.get(0);
+        } catch (HairsalonException e) {
+            throw new HairsalonException(e.getMessage(), e);
+        }
+    }
+    /**
+     * Lists all users from table USER in database that have the desired username
+     * @param username
+     * @return List of all users with the desired username
+     */
+    @Override
+    public User getByUsername(String username) throws HairsalonException {
+        try {
+            List<User> users = executeQuery("SELECT * FROM USER WHERE username = ?", new Object[]{username});
+            return users.get(0);
+        } catch (HairsalonException e) {
+            throw new HairsalonException(e.getMessage(), e);
+        }
+    }
+    /**
+     * Lists all users from table USER in database that are admins
+     * @param admin String
+     * @return boolean
+     * @throws HairsalonException thrown in case of problem with db
+     */
+    @Override
+    public User getByAdmin(boolean admin) throws HairsalonException {
+        try {
+            List<User> users = executeQuery("SELECT * FROM USER WHERE admin = ?", new Object[]{admin});
+            return users.get(0);
+        } catch (HairsalonException e) {
+            throw new HairsalonException(e.getMessage(), e);
+        }
+    }
 }
