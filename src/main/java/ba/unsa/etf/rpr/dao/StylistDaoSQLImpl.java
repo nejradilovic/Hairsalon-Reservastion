@@ -14,22 +14,36 @@ import java.util.TreeMap;
  */
 public class StylistDaoSQLImpl extends AbstractDao<Stylist> implements StylistDao{
     private static  StylistDaoSQLImpl instance = null;
-    private StylistDaoSQLImpl() {
+    /**
+     * Private constructor for the StylistDaoSQLImpl class.
+     * This constructor initializes the parent class  with the table name.
+     */
+    StylistDaoSQLImpl() {
         super("STYLIST");
     }
-
+    /**
+     * @return StylistDaoSQLImpl
+     * We don't need more than one object for CRUD operations on table 'STYLIST' so we will use Singleton
+     * This method will call private constructor in instance==null and then return that instance
+     */
     public static StylistDaoSQLImpl getInstance(){
         if(instance==null)
             instance = new StylistDaoSQLImpl();
         return instance;
     }
-
+    /**
+     * Removes the singleton instance of the StylistDaoSQLImpl class.
+     */
     public static void removeInstance(){
         if(instance!=null)
             instance=null;
     }
-
-
+    /**
+     *Maps a row from the result set to a Stylist object
+     *@param rs The result set from the database query
+     *@return A Stylist object with properties set according to the values in the result set
+     *@throws HairsalonException if there is an error when retrieving values from the result set
+     */
     @Override
     public Stylist row2object(ResultSet rs) throws HairsalonException {
         try {
@@ -43,7 +57,10 @@ public class StylistDaoSQLImpl extends AbstractDao<Stylist> implements StylistDa
             throw new HairsalonException(e.getMessage(), e);
         }
     }
-
+    /**
+     * @param object - object to be mapped
+     * @return map representation of object
+     */
     @Override
     public Map<String, Object> object2row(Stylist object) {
         Map<String, Object> row = new TreeMap<>();
