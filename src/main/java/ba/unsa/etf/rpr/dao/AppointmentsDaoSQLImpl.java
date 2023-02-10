@@ -7,21 +7,42 @@ import java.sql.*;
 import java.util.Map;
 import java.util.TreeMap;
 
-
+/**
+ * MySQL Implementation of DAO
+ * @author Nejra Adilovic
+ */
 public class AppointmentsDaoSQLImpl extends AbstractDao<Appointments> implements AppointmentsDao{
     private static  AppointmentsDaoSQLImpl instance = null;
-    private AppointmentsDaoSQLImpl() {
+    /**
+     * Private constructor for the AppointmentsDaoSQLImpl class.
+     * This constructor initializes the parent class  with the table name.
+     */
+    AppointmentsDaoSQLImpl() {
         super("APPOINTMENTS");
     }
+    /**
+     * @return AppointmentsDaoSQLImpl
+     * We don't need more than one object for CRUD operations on table 'APPOINTMENTS' so we will use Singleton
+     * This method will call private constructor in instance==null and then return that instance
+     */
     public static AppointmentsDaoSQLImpl getInstance(){
         if(instance==null)
             instance = new AppointmentsDaoSQLImpl();
         return instance;
     }
+    /**
+     * Removes the singleton instance of the AppointmentsDaoSQLImpl class.
+     */
     public static void removeInstance(){
         if(instance!=null)
             instance=null;
     }
+    /**
+     *Maps a row from the result set to a Appointments object
+     *@param rs The result set from the database query
+     *@return Appointments object with properties set according to the values in the result set
+     *@throws HairsalonException if there is an error when retrieving values from the result set
+     */
     @Override
     public Appointments row2object(ResultSet rs) throws HairsalonException {
         try{
@@ -38,7 +59,10 @@ public class AppointmentsDaoSQLImpl extends AbstractDao<Appointments> implements
             throw new HairsalonException(e.getMessage(), e);
         }
     }
-
+    /**
+     * @param object - object to be mapped
+     * @return map representation of object
+     */
     @Override
     public Map<String, Object> object2row(Appointments object) {
         Map<String, Object> item = new TreeMap<>();
