@@ -13,7 +13,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static ba.unsa.etf.rpr.dao.AbstractDao.getConnection;
-
+/**
+ *LoginController class is responsible for verifying and logging in users and admin.
+ *It provides functionality for logging in with provided username and password.
+ *@author Nejra Adilovic
+ */
 public class LoginController {
     public ColumnConstraints desnidio;
     public Hyperlink registration;
@@ -33,6 +37,10 @@ public class LoginController {
             passwordTextField.setFocusTraversable(true);
         });
     }
+    /**
+     * Retrieves the stage of the current window and call the close() method to close it.
+     * @param event actionEvent
+     */
     public void cancelButtonOnAction(ActionEvent event){
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
@@ -40,6 +48,12 @@ public class LoginController {
     public void registerUser(ActionEvent actionEvent) throws IOException {
         o.openWindow(gridPane,"registration");
     }
+    /**
+     * Defining action for login button
+     * Opens two different windows depending on if you are an admin or user
+     * @param actionEvent ActionEvent
+     * @throws IOException
+     */
     public void loginOnAction(ActionEvent actionEvent) throws IOException {
         if(usernameTextField.getText().isBlank()==true && passwordTextField.getText().isBlank()==true){
             emptyInput.setText("Please enter your username and password.");
@@ -70,6 +84,9 @@ public class LoginController {
             }
         }
     }
+    /**
+     * Method that checks if the user is in the database in order for him to login
+     */
     public boolean checkUser(String username, String password) {
         String sql = "SELECT * FROM USER WHERE username = ? AND password = ?";
         try {
