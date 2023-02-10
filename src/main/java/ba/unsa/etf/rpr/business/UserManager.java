@@ -88,5 +88,8 @@ public class UserManager {
     public User getByLastName(String last_name) throws HairsalonException {
         return DaoFactory.userDao().getByLastName(last_name);
     }
+    public User getByUsername(String username) throws HairsalonException {
+        return DaoFactory.userDao().getByUsername(username);
+    }
 
 }
