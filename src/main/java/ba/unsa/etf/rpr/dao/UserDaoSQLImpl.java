@@ -14,18 +14,36 @@ import java.util.TreeMap;
  */
 public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
     private static  UserDaoSQLImpl instance = null;
-    private UserDaoSQLImpl() {
+    /**
+     * Private constructor for the UserDaoSQLImpl class.
+     * This constructor initializes the parent class  with the table name.
+     */
+    UserDaoSQLImpl() {
         super("USER");
     }
+    /**
+     * @return UserDaoSQLImpl
+     * We don't need more than one object for CRUD operations on table 'USER' so we will use Singleton
+     * This method will call private constructor in instance==null and then return that instance
+     */
     public static UserDaoSQLImpl getInstance(){
         if(instance==null)
             instance = new UserDaoSQLImpl();
         return instance;
     }
+    /**
+     * Removes the singleton instance of the UserDaoSQLImpl class.
+     */
     public static void removeInstance(){
         if(instance!=null)
             instance=null;
     }
+    /**
+     *Maps a row from the result set to a User object
+     *@param rs The result set from the database query
+     *@return A User object with properties set according to the values in the result set
+     *@throws HairsalonException if there is an error when retrieving values from the result set
+     */
     @Override
     public User row2object(ResultSet rs) throws HairsalonException {
         try {
@@ -43,7 +61,10 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
             throw new HairsalonException(e.getMessage(), e);
         }
     }
-
+    /**
+     * @param object - object to be mapped
+     * @return map representation of object
+     */
     @Override
     public Map<String, Object> object2row(User object) {
         Map<String, Object> row = new TreeMap<>();
