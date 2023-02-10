@@ -5,6 +5,7 @@ import ba.unsa.etf.rpr.exceptions.HairsalonException;
 
 
 import java.sql.*;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -18,7 +19,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
      * Private constructor for the UserDaoSQLImpl class.
      * This constructor initializes the parent class  with the table name.
      */
-    UserDaoSQLImpl() {
+    public UserDaoSQLImpl() {
         super("USER");
     }
     /**
@@ -78,4 +79,19 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
         row.put("admin", object.isAdmin());
         return row;
     }
+    /**
+     * Lists all users from table USER in database that have the desired first name
+     * @param first_name
+     * @return List of all users with the desired first name
+     */
+    @Override
+    public User getByFirstName(String first_name) throws HairsalonException {
+        try {
+            List<User> users = executeQuery("SELECT * FROM USER WHERE first_name = ?", new Object[]{first_name});
+            return users.get(0);
+        } catch (HairsalonException e) {
+            throw new HairsalonException(e.getMessage(), e);
+        }
+    }
+
 }
