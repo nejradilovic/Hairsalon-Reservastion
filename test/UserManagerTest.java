@@ -32,5 +32,21 @@ public class UserManagerTest {
             throw new RuntimeException(e);
         }
     }
+    @Test
+    void testSearchByLastName(){
+        try {
+            assertEquals("062877807", userManager.getByLastName("Selimovic").getPhone());
+        } catch (HairsalonException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Test
+    void testSearchByUsername(){
+        try {
+            assertTrue(userManager.getByUsername("nadilovic2").isAdmin(), "true");
+        } catch (HairsalonException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
