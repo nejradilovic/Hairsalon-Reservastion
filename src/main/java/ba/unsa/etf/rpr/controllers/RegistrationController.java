@@ -14,7 +14,10 @@ import java.sql.SQLException;
 
 import static ba.unsa.etf.rpr.dao.AbstractDao.getConnection;
 
-
+/**
+ *RegistrationController class is responsible for signing up new users.
+ *@author Nejra Adilovic
+ */
 public class RegistrationController{
     public TextField firstnameEntry;
     public TextField lastnameEntry;
@@ -27,6 +30,9 @@ public class RegistrationController{
     public Label invalidUsername;
     public GridPane gridPaneRegistration;
     OpenNewStage o=new OpenNewStage();
+    /**
+     * Listener that makes sure that the username is over 6 characters
+     */
     public void initialize(){
         usernameEntry.setFocusTraversable(false);
         passwordEntry.setFocusTraversable(false);
@@ -49,11 +55,19 @@ public class RegistrationController{
                 invalidUsername.setText("Username must have atleast 6 characters");
         });
     }
+    /**
+     * Opens the login window when you press on the login link
+     * @throws IOException when there is a problem with loading the FXML file.
+     */
     public void createAccount(ActionEvent actionEvent) throws IOException {
         o.openWindow(gridPaneRegistration, "login");
     }
-
-
+    /**
+     * Defining action for sign up button
+     * Opens the welcome page and enters you in the database if all the fields are correct
+     * @param actionEvent ActionEvent
+     * @throws IOException
+     */
     public void signupOnAction(ActionEvent actionEvent) throws IOException, HairsalonException {
         if(usernameEntry.getText().isBlank()==true || lastnameEntry.getText().isBlank()==true || firstnameEntry.getText().isBlank()==true || emailEntry.getText().isBlank()==true
                 || phoneEntry.getText().isBlank()==true || passwordEntry.getText().isBlank()==true){
@@ -84,6 +98,9 @@ public class RegistrationController{
             }
         }
     }
+    /**
+     * Method that checks if the user with that username is already in the database
+     */
     public boolean checkUsername(String username) {
         String sql = "SELECT * FROM USER WHERE username = ?";
         try {
