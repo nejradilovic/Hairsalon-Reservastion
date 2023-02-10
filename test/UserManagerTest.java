@@ -48,5 +48,13 @@ public class UserManagerTest {
             throw new RuntimeException(e);
         }
     }
+    @Test
+    void testSearchByAdmin(){
+        try {
+            assertEquals("nadilovic2@etf.unsa.ba", userManager.getByAdmin(true).getEmail());
+        } catch (HairsalonException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
