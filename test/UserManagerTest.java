@@ -49,12 +49,38 @@ public class UserManagerTest {
         }
     }
     @Test
-    void testSearchByAdmin(){
+    void testUserIsAdmin(){
         try {
             assertEquals("nadilovic2@etf.unsa.ba", userManager.getByAdmin(true).getEmail());
         } catch (HairsalonException e) {
             throw new RuntimeException(e);
         }
+    }
+    @Test
+    void testAddUser(){
+        User user = new User();
+        user.setFirst_name("Sara");
+        user.setLast_name("Biogradlic");
+        user.setPhone("062001333");
+        user.setEmail("sbiogradlic1@gmail.com");
+        user.setAdmin(false);
+        user.setUsername("sbiogradlic1");
+        user.setPassword("stajeovoovo");
+        boolean added=false;
+        try {
+            userManager.add(user);
+            List<User> lista = userManager.getAll();
+            for(User u: lista){
+                if(u.getUsername().equals("sbiogradlic1")){
+                    userManager.delete(u.getId());
+                    added=true;
+                    break;
+                }
+            }
+        } catch (HairsalonException e) {
+            throw new RuntimeException(e);
+        }
+        assertTrue(added);
     }
 
 }
