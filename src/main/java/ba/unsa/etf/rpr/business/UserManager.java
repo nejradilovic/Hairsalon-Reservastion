@@ -74,7 +74,7 @@ public class UserManager {
         return DaoFactory.userDao().getAll();
     }
     /**
-     * Fetches User object form table USER defined by given id.
+     * Fetches User object from table USER defined by given id.
      * @param userId int
      * @return User object defined by given id
      * @throws HairsalonException
@@ -82,19 +82,37 @@ public class UserManager {
     public User getById(int userId) throws HairsalonException{
         return DaoFactory.userDao().getById(userId);
     }
+    /**
+     * Fetches User object from table USER defined by given first name.
+     * @param first_name String
+     * @return User
+     * @throws HairsalonException thrown in case of problem with db
+     */
     public User getByFirstName(String first_name) throws HairsalonException {
         return DaoFactory.userDao().getByFirstName(first_name);
     }
+    /**
+     * Fetches User object from table USER defined by given last name.
+     * @param last_name String
+     * @return User
+     * @throws HairsalonException thrown in case of problem with db
+     */
     public User getByLastName(String last_name) throws HairsalonException {
         return DaoFactory.userDao().getByLastName(last_name);
     }
+    /**
+     * Fetches User object from table USER defined by given username.
+     * @param username String
+     * @return User
+     * @throws HairsalonException thrown in case of problem with db
+     */
     public User getByUsername(String username) throws HairsalonException {
         return DaoFactory.userDao().getByUsername(username);
     }
     /**
-     * Checks if admin is logging in.
-     * @param admin String
-     * @return boolean
+     * Fetches User object from table USER defined by given boolean depending on if the user is an admin.
+     * @param admin boolean
+     * @return User
      * @throws HairsalonException thrown in case of problem with db
      */
     public User getByAdmin(boolean admin) throws HairsalonException{
