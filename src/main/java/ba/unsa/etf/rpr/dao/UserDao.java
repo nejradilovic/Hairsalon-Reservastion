@@ -13,5 +13,6 @@ import java.util.List;
 public interface UserDao extends Dao<User> {
     User getByFirstName(String first_name) throws HairsalonException;
     User getByLastName(String last_name) throws HairsalonException;
+    User getByUsername(String username) throws HairsalonException;
 
 }
