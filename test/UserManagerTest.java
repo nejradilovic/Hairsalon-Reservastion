@@ -24,5 +24,13 @@ public class UserManagerTest {
             throw new RuntimeException(e);
         }
     }
+    @Test
+    void testSearchByFirstName(){
+        try {
+            assertEquals("ahromic1", userManager.getByFirstName("Amina").getUsername());
+        } catch (HairsalonException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
