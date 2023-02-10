@@ -108,5 +108,9 @@ public class UserManagerTest {
         }
         assertTrue(deleted);
     }
+    @Test
+    void testGetAll(){
+        assertDoesNotThrow(() -> { userManager.getAll(); });
+    }
 
 }
