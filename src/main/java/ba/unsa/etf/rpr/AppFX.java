@@ -8,7 +8,10 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
-
+/**
+ * class that extends Application
+ *
+ */
 public class AppFX extends Application{
 
     @Override
