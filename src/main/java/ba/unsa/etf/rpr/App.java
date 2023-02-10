@@ -13,14 +13,24 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-
+/**
+ * CLI (Command Line Interface) implementation in following class
+ * Manipulate data through command line and database
+ * @author Nejra Adilovic
+ */
 public class App {
+    /**
+     * Defining final variables to describe all code having options
+     */
     private static final Option getUsers = new Option("getU", "get-users", false, "Printing all users from database");
     private static final Option getAppointments = new Option("getA", "get-appointments", false, "Printing all appointments from database");
     private static final Option getStylists = new Option("getS", "get-stylists", false, "Printing all stylists from database");
     private static final Option addStylist = new Option("s", "add-stylist", false, "Adding a new stylist to database");
     private static final Option deleteStylist = new Option("delS", "delete-stylist", false, "Deleting a stylist from database");
     private static final Option updateStylist = new Option("update", "update-stylist",false, "Updating stylist from database");
+    /**
+     * @param options
+     */
     public static void printFormattedOptions(Options options) {
         HelpFormatter helpFormatter = new HelpFormatter();
         PrintWriter printWriter = new PrintWriter(System.out);
@@ -38,6 +48,10 @@ public class App {
         options.addOption(updateStylist);
         return options;
     }
+    /**
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         Options options = addOptions();
 
