@@ -8,7 +8,7 @@ import ba.unsa.etf.rpr.exceptions.HairsalonException;
 import java.util.List;
 /**
  * This is a Java class called "StylistManager" that provides a set of methods for managing Stylist objects.
- * The class uses the DaoFactory to access the Stylist DAO (Data Access Object) and perform CRUD (Create, Read, Update, Delete) operations on User objects.
+ * The class uses the DaoFactory to access the Stylist DAO (Data Access Object) and perform CRUD (Create, Read, Update, Delete) operations on Stylist objects.
  * It also throws a HairsalonException in case of an error.
  * @author Nejra Adilovic
  */
