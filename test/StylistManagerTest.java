@@ -36,5 +36,26 @@ public class StylistManagerTest {
         }
         assertTrue(deleted);
     }
-
+    @Test
+    void testAddStylist(){
+        Stylist stylist = new Stylist();
+        stylist.setFirst_name("Sara");
+        stylist.setLast_name("Biogradlic");
+        stylist.setPhone("062001333");
+        boolean added=false;
+        try {
+            stylistManager.add(stylist);
+            List<Stylist> lista = stylistManager.getAll();
+            for(Stylist s: lista){
+                if(s.getPhone().equals("062001333")){
+                    stylistManager.delete(s.getId());
+                    added=true;
+                    break;
+                }
+            }
+        } catch (HairsalonException e) {
+            throw new RuntimeException(e);
+        }
+        assertTrue(added);
+    }
 }
