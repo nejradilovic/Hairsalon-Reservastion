@@ -91,5 +91,13 @@ public class UserManager {
     public User getByUsername(String username) throws HairsalonException {
         return DaoFactory.userDao().getByUsername(username);
     }
-
+    /**
+     * Checks if admin is logging in.
+     * @param admin String
+     * @return boolean
+     * @throws HairsalonException thrown in case of problem with db
+     */
+    public User getByAdmin(boolean admin) throws HairsalonException{
+        return DaoFactory.userDao().getByAdmin(admin);
+    }
 }
