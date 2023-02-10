@@ -5,18 +5,27 @@ import ba.unsa.etf.rpr.exceptions.HairsalonException;
 
 import java.sql.*;
 import java.util.*;
-
+/**
+ * Abstract class that implements core DAO CRUD methods for every entity
+ *
+ * @author Nejra Adilovic
+ */
 
 public abstract class AbstractDao<T extends Idable> implements Dao<T>{
 
     private static Connection connection = null;
     private String tableName;
-
+    /**
+     * Constructor for class AbstractDao that sets connection name and calls createConnection method.
+     * @param tableName String
+     */
     public AbstractDao(String tableName) {
         this.tableName = tableName;
         if(connection==null) createConnection();
     }
-
+    /**
+     * Creates connection to database using properties file called db.properties.
+     */
     private static void createConnection(){
         if(AbstractDao.connection==null) {
             try {
@@ -35,6 +44,10 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
     public static Connection getConnection(){
         return AbstractDao.connection;
     }
+    /**
+     * For singleton pattern, we have only one connection on the database which will be closed automatically when our program ends
+     * But if we want to close connection manually, then we will call this method which should be called from finally block
+     */
     public static void closeConnection() {
         if(connection!=null) {
             try {
@@ -46,18 +59,41 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             }
         }
     }
+    /**
+     * Method for mapping ResultSet into Object
+     * @param rs - result set from database
+     * @return a Bean object for specific table
+     * @throws HairsalonException in case of error with db
+     */
     public abstract T row2object(ResultSet rs) throws HairsalonException;
-
+    /**
+     * Method for mapping Object into Map
+     * @param object - a bean object for specific table
+     * @return key, value sorted map of object
+     */
     public abstract Map<String, Object> object2row(T object);
-
+    /**
+     * Fetches object defined by the id given.
+     * @param id primary key of entity
+     * @return object that has the given id
+     * @throws HairsalonException in case of an error with db
+     */
     public T getById(int id) throws HairsalonException {
         return executeQueryUnique("SELECT * FROM "+this.tableName+" WHERE " + this.tableName + "_id = ?", new Object[]{id});
     }
-
+    /**
+     * Fetches all objects from the given table.
+     * @return List of objects
+     * @throws HairsalonException in case of an error with db
+     */
     public List<T> getAll() throws HairsalonException {
         return executeQuery("SELECT * FROM "+ tableName, null);
     }
-
+    /**
+     * Deletes object defined by the given id from the table.
+     * @param id - primary key of entity
+     * @throws HairsalonException in case of an error with db
+     */
     public void delete(int id) throws HairsalonException {
         String sql = "DELETE FROM "+tableName+" WHERE " + this.tableName + "_id = ?";
         try{
@@ -68,7 +104,12 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             throw new HairsalonException(e.getMessage(), e);
         }
     }
-
+    /**
+     * Adds given object to a table.
+     * @param item bean for saving to database
+     * @return item bean
+     * @throws HairsalonException in case of an error with db
+     */
     public T add(T item) throws HairsalonException{
         Map<String, Object> row = object2row(item);
         Map.Entry<String, String> columns = prepareInsertParts(row);
@@ -98,7 +139,12 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             throw new HairsalonException(e.getMessage(), e);
         }
     }
-
+    /**
+     * Updates object defined by the given id.
+     * @param item - bean to be updated. id must be populated
+     * @return item bean
+     * @throws HairsalonException in case of an error with db
+     */
     public T update(T item) throws HairsalonException{
         Map<String, Object> row = object2row(item);
         String updateColumns = prepareUpdateParts(row);
@@ -126,7 +172,13 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             throw new HairsalonException(e.getMessage(), e);
         }
     }
-
+    /**
+     * Utility method for executing any kind of query
+     * @param query - SQL query
+     * @param params - params for query
+     * @return List of objects from database
+     * @throws HairsalonException in case of error with db
+     */
     public List<T> executeQuery(String query, Object[] params) throws HairsalonException{
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -145,7 +197,13 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             throw new HairsalonException(e.getMessage(), e);
         }
     }
-
+    /**
+     * Utility for query execution that always return single record
+     * @param query - query that returns single record
+     * @param params - list of params for sql query
+     * @return Object
+     * @throws HairsalonException in case when object is not found
+     */
     public T executeQueryUnique(String query, Object[] params) throws HairsalonException{
         List<T> result = executeQuery(query, params);
         if (result != null && result.size() == 1){
@@ -172,7 +230,9 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         }
         return new AbstractMap.SimpleEntry<>(columns.toString(), questions.toString());
     }
-
+    /**
+     * Accepts KV storage of column names and return CSV of columns and question marks for insert statement
+     */
     private String prepareUpdateParts(Map<String, Object> row){
         StringBuilder columns = new StringBuilder();
 
