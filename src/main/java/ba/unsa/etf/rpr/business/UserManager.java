@@ -82,4 +82,7 @@ public class UserManager {
     public User getById(int userId) throws HairsalonException{
         return DaoFactory.userDao().getById(userId);
     }
+    public User getByFirstName(String first_name) throws HairsalonException {
+        return DaoFactory.userDao().getByFirstName(first_name);
+    }
 }
