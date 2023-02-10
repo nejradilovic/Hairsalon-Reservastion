@@ -85,7 +85,7 @@ public class LoginController {
         }
     }
     /**
-     * Method that checks if the user is in the database in order for him to login
+     * Method that checks if the user is in the database
      */
     public boolean checkUser(String username, String password) {
         String sql = "SELECT * FROM USER WHERE username = ? AND password = ?";
