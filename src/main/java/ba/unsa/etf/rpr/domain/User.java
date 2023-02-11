@@ -17,7 +17,16 @@ public class User implements Idable{
     private String username;
     private String password;
     private boolean admin;
-
+    public User(){}
+    public User(String firstName, String lastName, String email, String phone, String password, String username, boolean admin) {
+        this.first_name = firstName;
+        this.last_name = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.admin = admin;
+        this.username = username;
+        this.password = password;
+    }
     @Override
     public int getId() {
         return user_id;
