@@ -10,7 +10,12 @@ import java.util.Objects;
 public class Stylist implements Idable{
     private int stylist_id;
     private String first_name,last_name,phone;
-
+    public Stylist(){}
+    public Stylist(String first_name, String last_name, String phone) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.phone = phone;
+    }
     @Override
     public int getId() {
         return stylist_id;
