@@ -1,18 +1,19 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.dao.UserDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.HairsalonException;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
-import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javafx.stage.Stage;
 
-import static ba.unsa.etf.rpr.dao.AbstractDao.getConnection;
+import java.io.IOException;
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 /**
  *RegistrationController class is responsible for signing up new users.
@@ -29,7 +30,6 @@ public class RegistrationController{
     public Hyperlink loginLink;
     public Label invalidUsername;
     public GridPane gridPaneRegistration;
-    OpenNewStage o=new OpenNewStage();
     /**
      * Listener that makes sure that the username is over 6 characters
      */
@@ -47,7 +47,6 @@ public class RegistrationController{
             usernameEntry.setFocusTraversable(true);
             passwordEntry.setFocusTraversable(true);
         });
-        String username=usernameEntry.getText();
         usernameEntry.textProperty().addListener((obs, oldValue, newValue)->{
             if(newValue.length()>=6)
                 invalidUsername.setText("");
@@ -60,7 +59,15 @@ public class RegistrationController{
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void createAccount(ActionEvent actionEvent) throws IOException {
-        o.openWindow(gridPaneRegistration, "login");
+        final Stage mainStage = (Stage) gridPaneRegistration.getScene().getWindow();
+        Stage myStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        loader.load();
+        myStage.setTitle("Seat&Style");
+        myStage.getIcons().add(new Image("/img/loginlogo.png"));
+        myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        myStage.show();
+        mainStage.hide();
     }
     /**
      * Defining action for sign up button
@@ -69,22 +76,20 @@ public class RegistrationController{
      * @throws IOException
      */
     public void signupOnAction(ActionEvent actionEvent) throws IOException, HairsalonException {
-        if(usernameEntry.getText().isBlank()==true || lastnameEntry.getText().isBlank()==true || firstnameEntry.getText().isBlank()==true || emailEntry.getText().isBlank()==true
-                || phoneEntry.getText().isBlank()==true || passwordEntry.getText().isBlank()==true){
+        if(usernameEntry.getText().isBlank() || lastnameEntry.getText().isBlank() || firstnameEntry.getText().isBlank() || emailEntry.getText().isBlank() || phoneEntry.getText().isBlank() || passwordEntry.getText().isBlank()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("Missing fields");
-            alert.setContentText("You have to fill in all fields in order to register!");
+            alert.setContentText("You have to fill in all fields in order to sign up!");
             alert.showAndWait();
         }
-        else if(usernameEntry.getText().isBlank()==false && lastnameEntry.getText().isBlank()==false && firstnameEntry.getText().isBlank()==false && emailEntry.getText().isBlank()==false
-                && phoneEntry.getText().isBlank()==false && passwordEntry.getText().isBlank()==false){
+        else if(!usernameEntry.getText().isBlank() || !lastnameEntry.getText().isBlank() || !firstnameEntry.getText().isBlank() || !emailEntry.getText().isBlank() || !phoneEntry.getText().isBlank() || !passwordEntry.getText().isBlank()){
             String username = usernameEntry.getText();
-            UserDaoSQLImpl u=new UserDaoSQLImpl();
-            User user=new User();
-            boolean flag=checkUsername(username);
+            UserDaoSQLImpl u = new UserDaoSQLImpl();
+            User user = new User();
+            boolean flag = DaoFactory.userDao().checkUsername(username);
             if (flag) {
-                invalidUsername.setText("The username you entered is already taken.");
+                invalidUsername.setText("Username already exists!");
             }
             else {
                 user.setPassword(passwordEntry.getText());
@@ -94,25 +99,26 @@ public class RegistrationController{
                 user.setPhone(phoneEntry.getText());
                 user.setEmail(emailEntry.getText());
                 u.add(user);
-                o.openWindow(gridPaneRegistration, "welcome");
+                openDialog("Welcome", "/fxml/welcome.fxml", new WelcomeController());
             }
         }
     }
     /**
-     * Method that checks if the user with that username is already in the database
+     * Opens a dialog window with the provided FXML file path
+     * @param title String for window Title
+     * @param file path of the FXML file
+     * @param controller Object
+     * @throws IOException in case of an error
      */
-    public boolean checkUsername(String username) {
-        String sql = "SELECT * FROM USER WHERE username = ?";
-        try {
-            PreparedStatement s=getConnection().prepareStatement(sql);
-            s.setString(1, username);
-            ResultSet r = s.executeQuery();
-            while(r.next()){
-                return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
+    private void openDialog(String title, String file, Object controller) throws IOException {
+        final Stage homeStage = (Stage) gridPaneRegistration.getScene().getWindow();
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
+        loader.setController(controller);
+        stage.setTitle(title);
+        stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        homeStage.hide();
+        stage.show();
     }
 }
