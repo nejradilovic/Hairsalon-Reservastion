@@ -136,4 +136,53 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
             throw new HairsalonException(e.getMessage(), e);
         }
     }
+    /**
+     * Returns user whose username and password are given as parameters.
+     * @param username search String for username of user
+     * @param password search String for password of user
+     * @return User instance
+     */
+    public User checkUser(String username, String password) {
+        String sql = "SELECT * FROM USER WHERE username = ? AND password = ?";
+        User user = null;
+        try {
+            List<User> u = DaoFactory.userDao().getAll();
+            PreparedStatement s=getConnection().prepareStatement(sql);
+            s.setString(1, username);
+            s.setString(2, password);
+            ResultSet r = s.executeQuery();
+
+            if(!r.next()) return null;
+
+            user = row2object(r);
+            return user;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (HairsalonException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
+    }
+    /**
+     * Returns true if username, given as parameter, exists in database.
+     *
+     * @param username search String for username
+     * @return boolean
+     */
+    public boolean checkUsername(String username) {
+        String sql = "SELECT * FROM USER WHERE username = ?";
+        try {
+            PreparedStatement s=getConnection().prepareStatement(sql);
+            s.setString(1, username);
+            ResultSet r = s.executeQuery();
+            while(r.next()){
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
