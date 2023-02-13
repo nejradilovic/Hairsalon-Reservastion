@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import static java.lang.String.valueOf;
 import ba.unsa.etf.rpr.business.AppointmentsManager;
 import ba.unsa.etf.rpr.business.StylistManager;
 import ba.unsa.etf.rpr.business.UserManager;
@@ -8,6 +9,7 @@ import ba.unsa.etf.rpr.domain.Stylist;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.HairsalonException;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -46,6 +48,10 @@ public class AdminController {
     public TableColumn<Appointments, Date> timeColumn;
     public TableColumn<Appointments, Integer> durationColumn;
     public TableColumn<Appointments, String> priceColumn;
+
+    public TableColumn<Appointments, String> userIdfkColumn;
+    public TableColumn<Appointments, String> stylistIdfkColumn;
+
     public BorderPane borderPaneId;
     public Button deleteId;
     public Button editButton;
@@ -58,6 +64,7 @@ public class AdminController {
     UserManager userManager=new UserManager();
     StylistManager stylistManager=new StylistManager();
     AppointmentsManager appointmentsManager=new AppointmentsManager();
+
     /**
      * Opens the login window when you press on the icon
      * @throws IOException when there is a problem with loading the FXML file.
@@ -122,11 +129,11 @@ public class AdminController {
         }
     }
     /**
-     *Initializes the userTable, roomTable and reservationsTable with values from database for users, rooms and reservations.
+     *Initializes the userTable, stylistTable and appointmentsTable with values from database for users, rooms and reservations.
      */
     public void initialize(){
         userIdColumn.setCellValueFactory(cellData -> {
-            User user= cellData.getValue();
+            User user = cellData.getValue();
             return new SimpleIntegerProperty(user.getId()).asObject();
         });
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<User,String>("first_name"));
@@ -137,6 +144,7 @@ public class AdminController {
         passwordColumn.setCellValueFactory(new PropertyValueFactory<User,String>("password"));
         adminColumn.setCellValueFactory(new PropertyValueFactory<User, Boolean>("admin"));
         refreshUser();
+
         stylistIdColumn.setCellValueFactory(cellData -> {
             Stylist stylist = cellData.getValue();
             return new SimpleIntegerProperty(stylist.getId()).asObject();
@@ -145,6 +153,7 @@ public class AdminController {
         last_nameColumn.setCellValueFactory(new PropertyValueFactory<Stylist,String>("last_name"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<Stylist,String>("phone"));
         refreshStylist();
+
         appointmentsIdColumn.setCellValueFactory(cellData -> {
             Appointments appointments = cellData.getValue();
             return new SimpleIntegerProperty(appointments.getId()).asObject();
@@ -153,6 +162,8 @@ public class AdminController {
         timeColumn.setCellValueFactory(new PropertyValueFactory<Appointments,Date>("time"));
         durationColumn.setCellValueFactory(new PropertyValueFactory<Appointments,Integer>("duration"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Appointments,String>("price"));
+        userIdfkColumn.setCellValueFactory(param -> new SimpleStringProperty((valueOf(param.getValue().getUser().getId()))));
+        stylistIdfkColumn.setCellValueFactory(param -> new SimpleStringProperty((valueOf(param.getValue().getStylist().getId()))));
         refreshAppointments();
     }
 }
