@@ -67,6 +67,7 @@ public class AdminController {
 
     /**
      * Opens the login window when you press on the icon
+     * @param mouseEvent MouseEvent
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void logoutImageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
@@ -82,6 +83,7 @@ public class AdminController {
     }
     /**
      * Opens the login window when you press on the login text
+     * @param mouseEvent MouseEvent
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void logoutOnMouseClicked(MouseEvent mouseEvent) throws IOException {
