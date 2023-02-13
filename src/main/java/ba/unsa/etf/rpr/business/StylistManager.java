@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.business;
 import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Stylist;
+import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.HairsalonException;
 
 import java.util.List;
@@ -51,12 +52,30 @@ public class StylistManager {
         return DaoFactory.stylistDao().getAll();
     }
     /**
-     * Fetches Stylist object form table STYLIST defined by given id.
+     * Fetches Stylist object from table STYLIST defined by given id.
      * @param stylistId int
      * @return Stylist object defined by given id
      * @throws HairsalonException
      */
     public Stylist getById(int stylistId) throws HairsalonException{
         return DaoFactory.stylistDao().getById(stylistId);
+    }
+    /**
+     * Fetches Stylist object form table STYLIST defined by given name (first_name and last_name).
+     * @param first_name String
+     * @param last_name String
+     * @return Stylist object defined by given name
+     * @throws HairsalonException
+     */
+    public Stylist getByName(String first_name, String last_name) throws HairsalonException {
+        return DaoFactory.stylistDao().getByName(first_name,last_name);
+    }
+    /**
+     * Fetches all names of stylists from table STYLIST and stores it in a list.
+     * @return List of all stylists names
+     * @throws HairsalonException thrown in case of problem with db
+     */
+    public List<String> getAllNames() throws HairsalonException {
+        return DaoFactory.stylistDao().getAllNames();
     }
 }
