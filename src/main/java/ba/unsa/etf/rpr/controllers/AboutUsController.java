@@ -81,6 +81,7 @@ public class AboutUsController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
         loader.setController(controller);
         stage.setTitle(title);
+        stage.getIcons().add(new Image("/img/loginlogo.png"));
         stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         homeStage.hide();
