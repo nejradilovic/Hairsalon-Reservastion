@@ -25,11 +25,12 @@ public class App {
     private static final Option getUsers = new Option("getU", "get-users", false, "Printing all users from database");
     private static final Option getAppointments = new Option("getA", "get-appointments", false, "Printing all appointments from database");
     private static final Option getStylists = new Option("getS", "get-stylists", false, "Printing all stylists from database");
-    private static final Option addStylist = new Option("s", "add-stylist", false, "Adding a new stylist to database");
-    private static final Option deleteStylist = new Option("delS", "delete-stylist", false, "Deleting a stylist from database");
+    private static final Option addStylist = new Option("add", "add-stylist", false, "Adding new stylist to database");
+    private static final Option deleteStylist = new Option("delete", "delete-stylist", false, "Deleting stylist from database");
     private static final Option updateStylist = new Option("update", "update-stylist",false, "Updating stylist from database");
     /**
-     * @param options
+     * Printing on console screen how to properly use commands.
+     * @param options available options
      */
     public static void printFormattedOptions(Options options) {
         HelpFormatter helpFormatter = new HelpFormatter();
@@ -38,6 +39,10 @@ public class App {
         helpFormatter.printOptions(printWriter, 150, options, 2, 7);
         printWriter.close();
     }
+    /**
+     * Adding options that can be used on console screen.
+     * @return all options
+     */
     public static Options addOptions() {
         Options options = new Options();
         options.addOption(addStylist);
@@ -49,8 +54,9 @@ public class App {
         return options;
     }
     /**
-     * @param args
-     * @throws Exception
+     * Manipulates with console screen commands
+     * @param args String[]
+     * @throws Exception in case of an error
      */
     public static void main(String[] args) throws Exception {
         Options options = addOptions();
@@ -71,7 +77,8 @@ public class App {
                 System.out.println("New stylist successfully added to database!");
             }
             catch(Exception e){
-                System.out.println("Incorrect");
+                System.out.println("Error. Invalid parameters, please follow these guidelines when adding a stylist:\n" +
+                        "Format: \"First_name\" \"Last_name\" \"Phone\"");
             }
         }
         else if(cl.hasOption(updateStylist.getOpt())){
@@ -98,7 +105,8 @@ public class App {
                 }
             }
             catch(Exception e){
-                System.out.println("Incorrect");
+                System.out.println("Error. Invalid parameters, please follow these guidelines when updating a stylist:\n" +
+                        "Format: \"Stylist_id\" \"First_name\" \"Last_name\" \"Phone\"");
             }
         }
         else if(cl.hasOption(deleteStylist.getOpt())) {
@@ -118,7 +126,8 @@ public class App {
                     System.out.println("The given id doesn't exist in the database!");
                 }
             } catch (Exception e) {
-                System.out.println("Incorrect");
+                System.out.println("Error. Invalid parameters, please follow these guidelines when deleting a stylist:\n" +
+                        "Format: \"Stylist_id\"");
             }
         }
         else if(cl.hasOption(getStylists.getOpt())){
