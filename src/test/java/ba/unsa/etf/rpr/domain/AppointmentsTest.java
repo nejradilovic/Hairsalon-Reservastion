@@ -1,8 +1,5 @@
-package ba.unsa.etf.rpr.dao;
+package ba.unsa.etf.rpr.domain;
 
-import ba.unsa.etf.rpr.domain.Appointments;
-import ba.unsa.etf.rpr.domain.Stylist;
-import ba.unsa.etf.rpr.domain.User;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -11,9 +8,13 @@ import java.time.Month;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class AppointmentsDaoTest {
+/**
+ * Tests for Appointments class
+ * @author Nejra Adilovic
+ */
+public class AppointmentsTest {
     /**
-     * Test for setters and getters for Appointments
+     * Test for setters and getters in Appointments
      */
     @Test
     public void testAppointmentsSettersAndGetters() {
@@ -33,7 +34,7 @@ public class AppointmentsDaoTest {
         assertNotNull(appointments.getUser());
     }
     /**
-     * Test for toString method for Appointments
+     * Test for toString method in Appointments
      */
     @Test
     public void testToString()
