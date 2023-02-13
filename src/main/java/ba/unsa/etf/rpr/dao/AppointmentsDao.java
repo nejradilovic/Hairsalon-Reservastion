@@ -5,7 +5,7 @@ import ba.unsa.etf.rpr.domain.Appointments;
 /**
  * Dao interface for Appointments domain bean
  *
- * @author Nejra Adilović
+ * @author Nejra Adilovic
  */
 public interface AppointmentsDao extends Dao<Appointments> {
 
