@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 /**
- * Holds information about User for Seat&Style
+ * Holds information about User
  * Bean for User
  * @author Nejra Adilović
  */
