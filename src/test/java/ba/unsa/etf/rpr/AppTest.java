@@ -1,16 +1,16 @@
 package ba.unsa.etf.rpr;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class AppTest
 {
     /**
-     * Rigorous Test :-)
+     * Dummy test
      */
     @Test
     public void shouldAnswerWithTrue()
