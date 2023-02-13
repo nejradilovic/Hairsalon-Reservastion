@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 /**
- * PricingController class is responsible for giving you the pricing list in Seat&Style.
+ * PricingController class is responsible for giving you the pricing list
  * @author Nejra Adilovic
  */
 
