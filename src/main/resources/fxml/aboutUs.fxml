@@ -37,12 +37,12 @@
                         <Image url="@../img/logout.png" />
                     </image>
                     <HBox.margin>
-                        <Insets left="32.0" top="10.0" />
+                        <Insets left="35.0" top="10.0" />
                     </HBox.margin>
                 </ImageView>
-                <Button fx:id="logoutId" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="47.0" prefWidth="87.0" style="-fx-background-color: transparent;" text="Logout">
+                <Button fx:id="logoutId" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="47.0" prefWidth="104.0" style="-fx-background-color: transparent;" text="Logout">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="Bodoni MT" size="22.0" />
                     </font>
                     <padding>
                         <Insets left="10.0" />
@@ -86,12 +86,12 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                        <Button fx:id="appointmentId" mnemonicParsing="false" onMouseClicked="#appointmentOnMouseClicked" prefHeight="47.0" prefWidth="224.0" style="-fx-background-color: transparent;" text="Make an appointment" textAlignment="CENTER">
+                        <Button fx:id="appointmentId" mnemonicParsing="false" onMouseClicked="#appointmentOnMouseClicked" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent;" text="Make an appointment" textAlignment="CENTER">
                             <font>
-                                <Font size="20.0" />
+                                <Font name="Bodoni MT" size="22.0" />
                             </font>
                             <VBox.margin>
-                                <Insets bottom="20.0" left="80.0" top="80.0" />
+                                <Insets bottom="20.0" left="85.0" top="80.0" />
                             </VBox.margin>
                         </Button>
                         <ImageView fx:id="appointmentImageId" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#appointmentImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
