@@ -1,23 +1,21 @@
 package ba.unsa.etf.rpr.business;
 
-import ba.unsa.etf.rpr.business.UserManager;
-import ba.unsa.etf.rpr.dao.DaoFactory;
-import ba.unsa.etf.rpr.dao.UserDao;
-import ba.unsa.etf.rpr.domain.Stylist;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.HairsalonException;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
-import org.mockito.Mockito;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
+/**
+ * Tests for UserManager class
+ * @author Nejra Adilovic
+ */
 public class UserManagerTest {
-    private UserManager userManager = new UserManager();
+    UserManager userManager = new UserManager();
+    /**
+     * Testing getById method
+     */
     @Test
     void testSearchById(){
         try {
@@ -26,6 +24,9 @@ public class UserManagerTest {
             throw new RuntimeException(e);
         }
     }
+    /**
+     * Testing getByFirstName method
+     */
     @Test
     void testSearchByFirstName(){
         try {
@@ -34,6 +35,9 @@ public class UserManagerTest {
             throw new RuntimeException(e);
         }
     }
+    /**
+     * Testing getByLastName method
+     */
     @Test
     void testSearchByLastName(){
         try {
@@ -42,6 +46,9 @@ public class UserManagerTest {
             throw new RuntimeException(e);
         }
     }
+    /**
+     * Testing getByUsername method
+     */
     @Test
     void testSearchByUsername(){
         try {
@@ -50,6 +57,9 @@ public class UserManagerTest {
             throw new RuntimeException(e);
         }
     }
+    /**
+     * Testing getByAdmin method
+     */
     @Test
     void testUserIsAdmin(){
         try {
@@ -58,6 +68,9 @@ public class UserManagerTest {
             throw new RuntimeException(e);
         }
     }
+    /**
+     * Testing add method
+     */
     @Test
     void testAddUser(){
         User user = new User();
@@ -84,6 +97,9 @@ public class UserManagerTest {
         }
         assertTrue(added);
     }
+    /**
+     * Testing delete method
+     */
     @Test
     void testDeleteUser(){
         User user = new User();
@@ -110,6 +126,9 @@ public class UserManagerTest {
         }
         assertTrue(deleted);
     }
+    /**
+     * Testing getAll method
+     */
     @Test
     void testGetAll(){
         assertDoesNotThrow(() -> { userManager.getAll(); });
