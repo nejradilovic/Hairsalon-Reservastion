@@ -10,10 +10,14 @@ import javafx.stage.Stage;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 /**
  * class that extends Application
- *
+ * @author Nejra Adilovic
  */
 public class AppFX extends Application{
-
+    /**
+     * Opens LogIn window
+     * @param primaryStage Stage
+     * @throws Exception in case of an error
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
@@ -23,6 +27,10 @@ public class AppFX extends Application{
         primaryStage.getIcons().add(new Image("/img/loginlogo.png"));
         primaryStage.show();
     }
+    /**
+     * Main runnable method
+     * @param args String[]
+     */
     public static void main(String[] args) {
         launch(args);
     }
