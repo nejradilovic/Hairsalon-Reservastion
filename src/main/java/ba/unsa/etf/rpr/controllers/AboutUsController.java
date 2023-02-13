@@ -26,6 +26,7 @@ public class AboutUsController {
     public ImageView appointmentImageId;
     /**
      * Opens the login window when you press on the logout icon
+     * @param mouseEvent MouseEvent
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void logoutOnMouseClicked(MouseEvent mouseEvent) throws IOException {
@@ -41,6 +42,7 @@ public class AboutUsController {
     }
     /**
      * Opens the login window when you press on logout button
+     * @param actionEvent ActionEvent
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
@@ -56,6 +58,7 @@ public class AboutUsController {
     }
     /**
      * Opens the my appointments window when you press on the text that says "My appointments"
+     * @param mouseEvent MouseEvent
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void appointmentOnMouseClicked(MouseEvent mouseEvent) throws IOException {
@@ -63,6 +66,7 @@ public class AboutUsController {
     }
     /**
      * Opens the my appointments window when you press on the icon calendar
+     * @param mouseEvent MouseEvent
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void appointmentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
