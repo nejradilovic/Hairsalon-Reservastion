@@ -37,7 +37,7 @@
                 </VBox>
                 <VBox prefHeight="123.0" prefWidth="398.0">
                     <children>
-                        <ComboBox fx:id="serviceId" editable="true" onAction="#selectOnAction" prefHeight="26.0" prefWidth="260.0" promptText="Choose service">
+                        <ComboBox fx:id="serviceId" editable="true" prefHeight="26.0" prefWidth="260.0" promptText="Choose service">
                             <VBox.margin>
                                 <Insets bottom="-10.0" left="70.0" />
                             </VBox.margin>
