@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.business;
 
-import ba.unsa.etf.rpr.business.StylistManager;
 import ba.unsa.etf.rpr.domain.Stylist;
 import ba.unsa.etf.rpr.exceptions.HairsalonException;
 import org.junit.jupiter.api.Test;
@@ -10,12 +9,22 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Tests for StylistManager class
+ * @author Nejra Adilovic
+ */
 public class StylistManagerTest {
     StylistManager stylistManager = new StylistManager();
+    /**
+     * Testing getAll method
+     */
     @Test
     void testGetAll(){
         assertDoesNotThrow(() -> { stylistManager.getAll(); });
     }
+    /**
+     * Testing delete method
+     */
     @Test
     void testDeleteStylist(){
         Stylist stylist = new Stylist();
@@ -38,6 +47,9 @@ public class StylistManagerTest {
         }
         assertTrue(deleted);
     }
+    /**
+     * Testing add method
+     */
     @Test
     void testAddStylist(){
         Stylist stylist = new Stylist();
