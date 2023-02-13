@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Date;
 import java.util.Objects;
 /**
- * Class that contains information about scheduled appointments made for Seat&Style.
+ * Class that contains information about scheduled appointments made
  * Bean for Appointments
  * @author Nejra Adilovic
  */
