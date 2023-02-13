@@ -39,6 +39,7 @@ public class ColoringController{
     private ArrayList<String> services = new ArrayList<>();
     public DatePicker datePickerId;
     public Button cancelId;
+    public Button confirmId;
     public ComboBox<String> serviceId;
     public ComboBox<String> stylistPickId;
     public Label priceLabel;
@@ -74,6 +75,7 @@ public class ColoringController{
         serviceId.setItems(FXCollections.observableList(services));
         stylistPickId.setItems(stylists);
         initializeDatePicker();
+        initializeServicePick();
     }
     /**
      * Initializing the date picker.
@@ -106,25 +108,25 @@ public class ColoringController{
         openDialog("Home page", "/fxml/mainWindow.fxml", new MainWindowController());
     }
     /**
-     * selectOnAction gives you the price and duration of the selected service
-     * @param actionEvent the action event
-     * @throws IOException the io exception
+     * initializeServicePick gives you the price and duration of the selected service
      */
-    public void selectOnAction(ActionEvent actionEvent) throws IOException{
-        String s = serviceId.getSelectionModel().getSelectedItem().toString();
-        if (s.contains("Highlights")) {
-            priceLabel.setText("120$");
-            durationLabel.setText("130 min");
-        } else if (s.contains("Balayage")) {
-            priceLabel.setText("155$");
-            durationLabel.setText("145 min");
-        } else if (s.contains("Ombre")) {
-            priceLabel.setText("145$");
-            durationLabel.setText("160 min");
-        } else if (s.contains("Single")) {
-            priceLabel.setText("120$");
-            durationLabel.setText("100 min");
-        }
+    public void initializeServicePick(){
+        serviceId.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue)->{
+            String s=services.get(Integer.parseInt(newValue.toString()));
+            if (s.contains("Highlights")) {
+                priceLabel.setText("120$");
+                durationLabel.setText("130 min");
+            } else if (s.contains("Balayage")) {
+                priceLabel.setText("155$");
+                durationLabel.setText("145 min");
+            } else if (s.contains("Ombre")) {
+                priceLabel.setText("145$");
+                durationLabel.setText("160 min");
+            } else if (s.contains("Single")) {
+                priceLabel.setText("120$");
+                durationLabel.setText("100 min");
+            }
+        });
     }
     /**
      * confirmButtonOnAction adds your appointment to the db and makes sure that the reservation is valid
@@ -132,7 +134,7 @@ public class ColoringController{
      * @throws IOException the io exception
      */
     public void confirmButtonOnAction(ActionEvent actionEvent) throws HairsalonException {
-        if(serviceId.getValue()==null || stylistPickId.getValue()==null  || datePickerId.getValue()==null){
+        if(serviceId.getValue().isEmpty() || stylistPickId.getValue()==null  || datePickerId.getValue()==null){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("Missing fields");
