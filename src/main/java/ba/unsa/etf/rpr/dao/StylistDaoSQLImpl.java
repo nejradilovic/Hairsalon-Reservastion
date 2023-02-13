@@ -1,9 +1,11 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Stylist;
+import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.HairsalonException;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -69,5 +71,42 @@ public class StylistDaoSQLImpl extends AbstractDao<Stylist> implements StylistDa
         row.put("last_name", object.getLast_name());
         row.put("phone", object.getPhone());
         return row;
+    }
+    /**
+     * Fetches Stylist object form table STYLIST defined by given name (first_name and last_name).
+     * @param first_name String
+     * @param last_name String
+     * @return Stylist object defined by given name
+     * @throws HairsalonException thrown in case of problem with db
+     */
+    public Stylist getByName(String first_name, String last_name) throws HairsalonException{
+        try {
+            List<Stylist> stylists = executeQuery("SELECT * FROM STYLIST WHERE first_name = ? AND last_name = ?", new Object[]{first_name,last_name});
+            return stylists.get(0);
+        } catch (HairsalonException e) {
+            throw new HairsalonException(e.getMessage(), e);
+        }
+    }
+    /**
+     * Fetches all names of stylists from table STYLIST and stores it in a list.
+     * @return List of all stylists names
+     * @throws HairsalonException thrown in case of problem with db
+     */
+    @Override
+    public List<String> getAllNames() throws HairsalonException {
+        String query = "SELECT * FROM STYLIST";
+        List<String> stylists = new ArrayList<String>();
+        try {
+            PreparedStatement stmt = this.getConnection().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                String name = rs.getString("first_name") + " " + rs.getString("last_name");
+                stylists.add(name);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return stylists;
     }
 }
