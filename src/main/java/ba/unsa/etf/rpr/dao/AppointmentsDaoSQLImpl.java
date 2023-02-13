@@ -17,7 +17,7 @@ public class AppointmentsDaoSQLImpl extends AbstractDao<Appointments> implements
      * Private constructor for the AppointmentsDaoSQLImpl class.
      * This constructor initializes the parent class  with the table name.
      */
-    AppointmentsDaoSQLImpl() {
+    public AppointmentsDaoSQLImpl() {
         super("APPOINTMENTS");
     }
     /**
