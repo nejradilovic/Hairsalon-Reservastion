@@ -7,8 +7,7 @@ Spend more time styling while new appointments land in your calendar automatical
 <br clear="left"/>
 As a user of the application, you have the following benefits: <br />
 * 24/7 possibility of reservation <br />
-* Overview of previous reservations <br /> 
-* Forget about unnecessary arrangements about a free date and time, just choose the one that suits you best <br /> <br />
+* Forget about unnecessary arrangements about a free appointment, just choose the one that suits you best <br /> <br />
 
 Thanks to Seat&Style you can forget about unnecessary messages and calls that interrupt your work or free time! Keep your chairs full and increase your salon’s appointments. <br />
 - 📫 How to reach me **nadilovic2@etf.unsa.ba**
