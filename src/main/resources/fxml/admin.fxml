@@ -64,7 +64,7 @@
                               <TableColumn fx:id="durationColumn" prefWidth="149.86663818359375" text="DURATION" />
                               <TableColumn fx:id="priceColumn" prefWidth="89.60003662109375" text="PRICE" />
                               <TableColumn fx:id="userIdfkColumn" prefWidth="107.20013427734375" text="USER_ID" />
-                              <TableColumn prefWidth="100.8001708984375" text="STYLIST_ID" />
+                              <TableColumn fx:id="stylistIdfkColumn" prefWidth="100.8001708984375" text="STYLIST_ID" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
