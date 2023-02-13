@@ -131,7 +131,7 @@ public class TreatmentController{
     /**
      * confirmButtonOnAction adds your appointment to the db and makes sure that the reservation is valid
      * @param actionEvent the action event
-     * @throws IOException the io exception
+     * @throws HairsalonException in case of problems with db
      */
     public void confirmButtonOnAction(ActionEvent actionEvent) throws HairsalonException {
         if(serviceId.getValue().isEmpty() || stylistPickId.getValue()==null || datePickerId.getValue()==null){
