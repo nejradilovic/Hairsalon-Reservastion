@@ -37,7 +37,6 @@ public class StylistManager {
     /**
      * Updates stylist in db table STYLIST.
      * @param s Stylist
-     * @return Stylist that is updated
      * @throws HairsalonException thrown in case of problem with db
      */
     public void update(Stylist s) throws HairsalonException {
