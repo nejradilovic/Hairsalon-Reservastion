@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.exceptions.HairsalonException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -34,7 +35,15 @@ public class MainWindowController {
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
-        openDialog("Login", "/fxml/login.fxml", new LoginController());
+        final Stage mainStage = (Stage) borderPaneId.getScene().getWindow();
+        Stage myStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        loader.load();
+        myStage.setTitle("Seat&Style");
+        myStage.getIcons().add(new Image("/img/loginlogo.png"));
+        myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        myStage.show();
+        mainStage.hide();
     }
     /**
      * Opens the login window when you press on the logout icon
@@ -51,31 +60,60 @@ public class MainWindowController {
         myStage.show();
         mainStage.hide();
     }
+    /**
+     * Opens the styling booking window
+     * @throws IOException when there is a problem with loading the FXML file.
+     */
     public void stylingHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         openDialog("Styling", "/fxml/styling.fxml", new StylingController());
     }
+    /**
+     * Opens the coloring booking window
+     * @throws IOException when there is a problem with loading the FXML file.
+     */
     public void coloringHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         openDialog("Coloring", "/fxml/coloring.fxml", new ColoringController());
     }
+    /**
+     * Opens the treatment booking window
+     * @throws IOException when there is a problem with loading the FXML file.
+     */
     public void treatmentHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         openDialog("Treatment", "/fxml/treatment.fxml", new TreatmentController());
     }
+    /**
+     * Opens the extensions booking window
+     * @throws IOException when there is a problem with loading the FXML file.
+     */
     public void extensionsHBoxIdOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         openDialog("Extensions", "/fxml/extensions.fxml", new ExtensionsController());
     }
     /**
-     * Opens the about us window when you press on the text that says "About us"
+     * Opens the about us window when you press on the text that says "About Seat&Style"
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void aboutTextOnMouseClicked(MouseEvent mouseEvent) throws  IOException{
-        openDialog("Welcome", "/fxml/aboutUs.fxml", new AboutUsController());
+        openDialog("About Seat&Style", "/fxml/aboutUs.fxml", new AboutUsController());
     }
     /**
-     * Opens the about us window when you press on the icon "About us"
+     * Opens the about us window when you press on the icon next to "About Seat&Style"
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void aboutImageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        openDialog("Welcome", "/fxml/aboutUs.fxml", new AboutUsController());
+        openDialog("About Seat&Style", "/fxml/aboutUs.fxml", new AboutUsController());
+    }
+    /** Opens the pricing list window when you press on the text that says "Pricing list"
+     *  @throws IOException when there is a problem with loading the FXML file.
+     */
+    public void pricingListTextOnMouseClicked(MouseEvent mouseEvent) throws  IOException{
+        openDialog("Pricing list", "/fxml/pricing.fxml", new PricingController());
+    }
+    /**
+     * Opens the pricing list window when you press on the icon next to "Pricing list"
+     * @throws IOException when there is a problem with loading the FXML file.
+     */
+    public void pricingListImageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        openDialog("Pricing list", "/fxml/pricing.fxml", new PricingController());
     }
     /**
      * Opens a dialog window with the provided FXML file path
@@ -90,6 +128,7 @@ public class MainWindowController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
         loader.setController(controller);
         stage.setTitle(title);
+        stage.getIcons().add(new Image("/img/loginlogo.png"));
         stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         homeStage.hide();
