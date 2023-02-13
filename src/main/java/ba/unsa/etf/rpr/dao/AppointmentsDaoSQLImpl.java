@@ -21,6 +21,7 @@ public class AppointmentsDaoSQLImpl extends AbstractDao<Appointments> implements
         super("APPOINTMENTS");
     }
     /**
+     * Gets instance
      * @return AppointmentsDaoSQLImpl
      * We don't need more than one object for CRUD operations on table 'APPOINTMENTS' so we will use Singleton
      * This method will call private constructor in instance==null and then return that instance
