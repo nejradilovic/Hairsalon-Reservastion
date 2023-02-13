@@ -31,7 +31,7 @@
    <bottom>
       <HBox prefHeight="71.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="logoutIcon" fitHeight="50.0" fitWidth="40.0" onMouseClicked="#logoutOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logoutIcon" fitHeight="39.0" fitWidth="37.0" onMouseClicked="#logoutOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/logout.png" />
                </image>
@@ -39,18 +39,21 @@
                   <Insets left="32.0" top="10.0" />
                </HBox.margin>
             </ImageView>
-            <Button fx:id="logoutId" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="47.0" prefWidth="87.0" style="-fx-background-color: transparent;" text="Logout">
+            <Button fx:id="logoutId" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="47.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="LOGOUT">
                <font>
-                  <Font size="20.0" />
+                  <Font name="Bodoni MT" size="22.0" />
                </font>
                <padding>
                   <Insets left="10.0" />
                </padding>
                <HBox.margin>
-                  <Insets left="5.0" top="10.0" />
+                  <Insets top="10.0" />
                </HBox.margin>
             </Button>
          </children>
+         <BorderPane.margin>
+            <Insets left="15.0" />
+         </BorderPane.margin>
       </HBox>
    </bottom>
    <left>
@@ -76,21 +79,24 @@
                   </Label>
                   <HBox prefHeight="133.0" prefWidth="243.0">
                      <children>
-                        <ImageView fitHeight="39.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="pricingListIconId" fitHeight="39.0" fitWidth="35.0" onMouseClicked="#pricingListImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/historija.png" />
+                              <Image url="@../img/price-tag.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="25.0" right="-20.0" top="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="224.0" style="-fx-background-color: transparent;" text="My appointments" textAlignment="CENTER">
+                        <Button fx:id="pricingListId" mnemonicParsing="false" onMouseClicked="#pricingListTextOnMouseClicked" prefHeight="47.0" prefWidth="230.0" style="-fx-background-color: transparent;" text="PRICE LIST            " textAlignment="CENTER">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="Bodoni MT" size="22.0" />
                            </font>
                            <padding>
-                              <Insets left="10.0" top="10.0" />
+                              <Insets left="40.0" top="20.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="-0.0" />
+                           </HBox.margin>
                         </Button>
                         <ImageView fx:id="aboutImageId" fitHeight="39.0" fitWidth="35.0" onMouseClicked="#aboutImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -100,15 +106,18 @@
                               <Insets left="-238.0" top="70.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button fx:id="aboutTextId" mnemonicParsing="false" onMouseClicked="#aboutTextOnMouseClicked" prefHeight="18.0" prefWidth="239.0" style="-fx-background-color: transparent;" text="About Seat&amp;Style" textAlignment="CENTER">
+                        <Button fx:id="aboutTextId" mnemonicParsing="false" onMouseClicked="#aboutTextOnMouseClicked" prefHeight="42.0" prefWidth="270.0" style="-fx-background-color: transparent;" text="ABOUT SEAT&amp;STYLE" textAlignment="CENTER">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="Bodoni MT" size="22.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="-22.0" top="68.0" />
+                              <Insets left="-10.0" top="70.0" />
                            </HBox.margin>
                         </Button>
                      </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
                <VBox.margin>
