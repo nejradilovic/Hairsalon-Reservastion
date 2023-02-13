@@ -5,11 +5,18 @@ package ba.unsa.etf.rpr.exceptions;
  * @author Nejra Adilovic
  */
 public class HairsalonException extends Exception{
-
+    /**
+     * Two-parameter constructor
+     * @param msg String
+     * @param reason Exception
+     */
     public HairsalonException(String msg, Exception reason){
         super(msg, reason);
     }
-
+    /**
+     * One-parameter constructor
+     * @param msg String
+     */
     public HairsalonException(String msg){
         super(msg);
     }
