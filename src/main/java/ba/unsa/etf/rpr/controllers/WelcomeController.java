@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -16,17 +17,17 @@ public class WelcomeController {
     public ImageView aboutId;
     /**
      * Opens a dialog window with the provided FXML file path when you press on a certain part of the screen
-     *@throws IOException when there is a problem with loading the FXML file.
+     * @throws IOException when there is a problem with loading the FXML file.
      */
     public void mainWindowOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         openDialog("Home page", "/fxml/mainWindow.fxml", new MainWindowController());
     }
     /**
      * Opens a dialog window with the provided FXML file path when you press on a certain part of the screen
-     *@throws IOException when there is a problem with loading the FXML file.
+     * @throws IOException when there is a problem with loading the FXML file.
      */
     public void aboutOnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        openDialog("About us", "/fxml/aboutUs.fxml", new AboutUsController());
+        openDialog("About Seat&Style", "/fxml/aboutUs.fxml", new AboutUsController());
     }
     /**
      * Opens a dialog window with the provided FXML file path
@@ -41,6 +42,7 @@ public class WelcomeController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
         loader.setController(controller);
         stage.setTitle(title);
+        stage.getIcons().add(new Image("/img/loginlogo.png"));
         stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         homeStage.hide();
