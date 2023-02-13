@@ -41,6 +41,9 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             }
         }
     }
+    /**
+     * @return connection to database
+     */
     public static Connection getConnection(){
         return AbstractDao.connection;
     }
@@ -212,7 +215,10 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             throw new HairsalonException("Object not found");
         }
     }
-
+    /**
+     * Accepts KV storage of column names and return CSV of columns and question marks for insert statement
+     * Example: (id, name, date) ?,?,?
+     */
     private Map.Entry<String, String> prepareInsertParts(Map<String, Object> row){
         StringBuilder columns = new StringBuilder();
         StringBuilder questions = new StringBuilder();
