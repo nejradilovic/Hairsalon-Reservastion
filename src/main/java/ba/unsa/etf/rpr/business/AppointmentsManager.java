@@ -35,7 +35,6 @@ public class AppointmentsManager {
     /**
      * Updates appointments in db table STYLIST.
      * @param a Appointments
-     * @return Appointments that is updated
      * @throws HairsalonException thrown in case of problem with db
      */
     public void update(Appointments a) throws HairsalonException {
@@ -53,7 +52,7 @@ public class AppointmentsManager {
      * Fetches Appointments object form table APPOINTMENTS defined by given id.
      * @param AppointmentsId int
      * @return Appointments object defined by given id
-     * @throws HairsalonException
+     * @throws HairsalonException in case of problems with db
      */
     public Appointments getById(int AppointmentsId) throws HairsalonException {
         return DaoFactory.appointmentsDao().getById(AppointmentsId);
