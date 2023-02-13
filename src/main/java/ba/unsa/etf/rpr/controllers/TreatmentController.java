@@ -43,6 +43,7 @@ public class TreatmentController{
     public Label durationLabelFixed;
     public DatePicker datePickerId;
     public Button cancelId;
+    public Button confirmId;
     public ComboBox<String> serviceId;
     public ComboBox<String> stylistPickId;
     private final StylistManager stylistManager = new StylistManager();
@@ -74,6 +75,7 @@ public class TreatmentController{
         serviceId.setItems(FXCollections.observableList(services));
         stylistPickId.setItems(stylists);
         initializeDatePicker();
+        initializeServicePick();
     }
     /**
      * Initializing the date picker.
@@ -106,25 +108,25 @@ public class TreatmentController{
         openDialog("Home page", "/fxml/mainWindow.fxml", new MainWindowController());
     }
     /**
-     * selectOnAction gives you the price and duration of the selected service
-     * @param actionEvent the action event
-     * @throws IOException the io exception
+     * initializeServicePick gives you the price and duration of the selected service
      */
-    public void selectOnAction(ActionEvent actionEvent) throws IOException{
-        String s = serviceId.getSelectionModel().getSelectedItem().toString();
-        if (s.contains("Keratin")) {
-            priceLabel.setText("120$");
-            durationLabel.setText("130 min");
-        } else if (s.contains("Detox")) {
-            priceLabel.setText("85$");
-            durationLabel.setText("145 min");
-        } else if (s.contains("Olaplex")) {
-            priceLabel.setText("100$");
-            durationLabel.setText("160 min");
-        } else if (s.contains("Hydra")) {
-            priceLabel.setText("70$");
-            durationLabel.setText("100 min");
-        }
+    public void initializeServicePick(){
+        serviceId.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue)->{
+            String s=services.get(Integer.parseInt(newValue.toString()));
+            if (s.contains("Keratin")) {
+                priceLabel.setText("120$");
+                durationLabel.setText("130 min");
+            } else if (s.contains("Detox")) {
+                priceLabel.setText("85$");
+                durationLabel.setText("145 min");
+            } else if (s.contains("Olaplex")) {
+                priceLabel.setText("100$");
+                durationLabel.setText("160 min");
+            } else if (s.contains("Hydra")) {
+                priceLabel.setText("70$");
+                durationLabel.setText("100 min");
+            }
+        });
     }
     /**
      * confirmButtonOnAction adds your appointment to the db and makes sure that the reservation is valid
@@ -132,7 +134,7 @@ public class TreatmentController{
      * @throws IOException the io exception
      */
     public void confirmButtonOnAction(ActionEvent actionEvent) throws HairsalonException {
-        if(serviceId.getValue()==null || stylistPickId.getValue()==null  || datePickerId.getValue()==null){
+        if(serviceId.getValue().isEmpty() || stylistPickId.getValue()==null || datePickerId.getValue()==null){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("Missing fields");
