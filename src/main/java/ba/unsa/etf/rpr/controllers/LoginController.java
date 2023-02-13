@@ -53,6 +53,7 @@ public class LoginController {
     }
     /**
      * Opens the registration window when you press on the link that says "Register here"
+     * @param actionEvent ActionEvent
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void registerUser(ActionEvent actionEvent) throws IOException {
@@ -62,7 +63,8 @@ public class LoginController {
      * Defining action for login button
      * Opens two different windows depending on if you are an admin or user
      * @param actionEvent ActionEvent
-     * @throws IOException
+     * @throws IOException in case of io
+     * @throws HairsalonException in case of problems with db
      */
     public void loginOnAction(ActionEvent actionEvent) throws IOException, HairsalonException {
         if(usernameTextField.getText().isBlank() && passwordTextField.getText().isBlank()){
