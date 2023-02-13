@@ -19,7 +19,6 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 /**
  * MainWindowController class methods open a dialog window with the provided FXML file path depending on which hairsalon service you chose
- * @throws IOException when there is a problem with loading the FXML file.
  */
 public class MainWindowController {
     public Button logoutId;
@@ -89,14 +88,14 @@ public class MainWindowController {
         openDialog("Extensions", "/fxml/extensions.fxml", new ExtensionsController());
     }
     /**
-     * Opens the about us window when you press on the text that says "About Seat&Style"
+     * Opens the about us window when you press on the text that says "About us"
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void aboutTextOnMouseClicked(MouseEvent mouseEvent) throws  IOException{
         openDialog("About Seat&Style", "/fxml/aboutUs.fxml", new AboutUsController());
     }
     /**
-     * Opens the about us window when you press on the icon next to "About Seat&Style"
+     * Opens the about us window when you press on the icon next to "About us"
      * @throws IOException when there is a problem with loading the FXML file.
      */
     public void aboutImageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
