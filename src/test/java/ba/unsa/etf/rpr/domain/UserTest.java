@@ -1,12 +1,15 @@
-package ba.unsa.etf.rpr.dao;
+package ba.unsa.etf.rpr.domain;
 
-import ba.unsa.etf.rpr.domain.User;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UserDaoTest {
+/**
+ * Tests for User class
+ * @author Nejra Adilovic
+ */
+public class UserTest {
     /**
-     * Test for setters and getters for User
+     * Test for setters and getters in User
      */
     @Test
     public void testUserSettersAndGetters() {
@@ -27,7 +30,7 @@ public class UserDaoTest {
         assertFalse(user.isAdmin(), "false");
     }
     /**
-     * Test for constructor for User
+     * Test for constructor in User
      */
     @Test
     public void testUserConstructor() {
@@ -41,7 +44,7 @@ public class UserDaoTest {
         assertFalse(user.isAdmin(), "false");
     }
     /**
-     * Test for equals method for User
+     * Test for equals method in User
      */
     @Test
     public void testEquals() {
@@ -50,7 +53,7 @@ public class UserDaoTest {
         assertEquals(user1, user2);
     }
     /**
-     * Test for toString method for User
+     * Test for toString method in User
      */
     @Test
     public void testToString()
