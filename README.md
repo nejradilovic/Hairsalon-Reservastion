@@ -18,3 +18,7 @@ Github: [@nejradilovic](https://github.com/nejradilovic)
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> </p>
+
+
+https://user-images.githubusercontent.com/115956648/221291997-df3c6b0c-5ad2-4023-bdb2-e14674cc3d2a.mp4
+
